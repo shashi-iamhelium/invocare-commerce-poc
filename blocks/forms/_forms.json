@@ -1,7 +1,7 @@
 {
   "definitions": [
     {
-      "title": "Forms",
+      "title": "Generic Form",
       "id": "forms",
       "model": "forms",
       "filter": "forms",
@@ -10,17 +10,6 @@
           "name": "forms",
           "rows": 1,
           "columns": 2
-        },
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block",
-            "template": {
-              "name": "Forms",
-              "model": "forms",
-              "filter": "forms",
-              "key-value": true
-            }
-          }
         }
       }
     },
@@ -33,21 +22,6 @@
           "name": "form-text-field",
           "rows": 1,
           "columns": 16
-        },
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "name": "Form Text Field",
-              "model": "form-text-field",
-              "formTextFieldConstraintType": "text",
-              "formTextFieldHideLabel": false,
-              "displayHelpMessageAsPlaceholder": true,
-              "formTextFieldValidationType": "none",
-              "formTextFieldRequiredFieldValidation": false,
-              "formTextFieldReadOnlydFieldValidation": false
-            }
-          }
         }
       }
     },
@@ -60,16 +34,6 @@
           "name": "form-options",
           "rows": 1,
           "columns": 12
-        },
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "name": "Form Options",
-              "model": "form-options",
-              "formOptionsType": "checkboxes"
-            }
-          }
         }
       }
     },
@@ -82,15 +46,6 @@
           "name": "postcode",
           "rows": 1,
           "columns": 3
-        },
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "name": "Postcode",
-              "model": "postcode"
-            }
-          }
         }
       }
     },
@@ -103,15 +58,6 @@
           "name": "form-button",
           "rows": 1,
           "columns": 5
-        },
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "name": "Form Button",
-              "model": "form-button"
-            }
-          }
         }
       }
     },
@@ -124,15 +70,6 @@
           "name": "form-hidden",
           "rows": 1,
           "columns": 3
-        },
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "name": "Form Hidden",
-              "model": "form-hidden"
-            }
-          }
         }
       }
     },
@@ -145,15 +82,6 @@
           "name": "information",
           "rows": 1,
           "columns": 4
-        },
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "name": "Information",
-              "model": "information"
-            }
-          }
         }
       }
     }
