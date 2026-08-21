@@ -1,0 +1,167 @@
+{
+  "fields": [
+    {
+      "component": "tab",
+      "label": "Properties",
+      "name": "formOptionsPropertiesTab"
+    },
+    {
+      "name": "block-name",
+      "value": "form-options"
+    },
+    {
+      "component": "select",
+      "name": "layout",
+      "label": "Layout",
+      "options": [
+        { "name": "Default Layout", "value": "defaultLayout" },
+        { "name": "Two Column", "value": "twoColumn" }
+      ],
+      "value": "defaultLayout"
+    },
+    {
+      "component": "select",
+      "name": "formOptionsType",
+      "label": "Type",
+      "options": [
+        { "name": "Checkboxes", "value": "checkboxes" },
+        { "name": "Drop-down", "value": "drop-down" }
+      ],
+      "value": "",
+      "description": "Set the type of the form field."
+    },
+    {
+      "component": "select",
+      "name": "formOptionsCheckboxesAlignment",
+      "label": "Alignment",
+      "options": [
+        { "name": "Horizontal", "value": "horizontal" },
+        { "name": "Vertical", "value": "vertical" }
+      ],
+      "condition": {
+        "===": [{ "var": "formOptionsType" }, "checkboxes"]
+      },
+      "value": "horizontal",
+      "description": "Alignment of radio/checkbox"
+    },
+    {
+      "component": "boolean",
+      "name": "formOptionsCheckboxesIsBoolean",
+      "label": "Is a boolean value?",
+      "defaultValue": false,
+      "condition": {
+        "===": [{ "var": "formOptionsType" }, "checkboxes"]
+      }
+    },
+    {
+      "component": "text",
+      "name": "formOptionsTitle",
+      "label": "Title",
+      "required": true,
+      "description": "Legend to describe the role of the field."
+    },
+    {
+      "component": "boolean",
+      "label": "Hide the title from being displayed",
+      "description": "Needed if the title is required only for accessibility purpose and does not impart any additional visual information about the field",
+      "name": "formOptionsHideTitle"
+    },
+    {
+      "component": "text",
+      "label": "Name",
+      "description": "The name of the field, which is submitted with the form data.",
+      "name": "formOptionsName",
+      "required": true
+    },
+    {
+      "component": "boolean",
+      "label": "Required",
+      "name": "formOptionsRequiredFieldValidation",
+      "value": false
+    },
+    {
+      "component": "text",
+      "label": "Required Message",
+      "name": "formOptionsRequiredFieldValidationMessage",
+      "description": "Please provide the required message.",
+      "condition": {
+        "===": [{ "var": "formOptionsRequiredFieldValidation" }, true]
+      }
+    },
+    {
+      "component": "container",
+      "label": "Options",
+      "name": "formOptionsFieldOptionsDropdown",
+      "condition": { "===": [{ "var": "formOptionsType" }, "drop-down"] },
+      "multi": true,
+      "fields": [
+        {
+          "component": "boolean",
+          "label": "Selected",
+          "name": "formOptionsFieldOptionsSelected",
+          "value": false
+        },
+        {
+          "component": "boolean",
+          "label": "Disabled",
+          "name": "formOptionsFieldOptionsDisabled",
+          "value": false
+        },
+        {
+          "component": "text",
+          "label": "Text",
+          "name": "formOptionsFieldOptionsText"
+        },
+        {
+          "component": "text",
+          "label": "Value",
+          "name": "formOptionsFieldOptionsValue"
+        }
+      ]
+    },
+    {
+      "component": "container",
+      "label": "Options",
+      "name": "formOptionsFieldOptionsCheckboxes",
+      "condition": { "===": [{ "var": "formOptionsType" }, "checkboxes"] },
+      "multi": true,
+      "fields": [
+        {
+          "component": "boolean",
+          "label": "Selected",
+          "name": "formOptionsFieldOptionsCheckboxesSelected",
+          "value": false
+        },
+        {
+          "component": "boolean",
+          "label": "Disabled",
+          "name": "formOptionsFieldOptionsCheckboxesDisabled",
+          "value": false
+        },
+        {
+          "component": "richtext",
+          "label": "Text",
+          "name": "formOptionsFieldOptionsCheckboxesRichtext"
+        },
+        {
+          "component": "text",
+          "label": "Value",
+          "name": "formOptionsFieldOptionsCheckboxesValue"
+        }
+      ]
+    },
+    {
+      "component": "container",
+      "name": "formOptionsAbout",
+      "label": "About",
+      "fields": [
+        {
+          "component": "text",
+          "name": "formOptionsAboutHelpMessage",
+          "label": "Help Message",
+          "description": "A hint for the user of what can be entered in the field."
+        }
+      ]
+    }
+  ]
+}
