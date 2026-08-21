@@ -38,6 +38,7 @@
       "commerce-shipping-status",
       "commerce-wishlist",
       "enrichment",
+      "generic-form",
       "forms",
       "fragment",
       "image",
@@ -85,6 +86,17 @@
   },
   {
     "id": "forms",
+    "components": [
+      "form-text-field",
+      "form-options",
+      "postcode",
+      "form-button",
+      "form-hidden",
+      "information"
+    ]
+  },
+  {
+    "id": "generic-form",
     "components": [
       "form-text-field",
       "form-options",
