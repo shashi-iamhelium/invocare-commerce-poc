@@ -216,7 +216,7 @@
           }
         },
         {
-          "title": "Generic Form",
+          "title": "Forms",
           "id": "forms",
           "model": "forms",
           "filter": "forms",
