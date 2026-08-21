@@ -1,0 +1,23 @@
+{
+  "fields": [
+    {
+      "name": "block-name",
+      "value": "postcode"
+    },
+    {
+      "component": "select",
+      "name": "layout",
+      "label": "Layout",
+      "options": [
+        { "name": "Default Layout", "value": "defaultLayout" },
+        { "name": "Two Column", "value": "twoColumn" }
+      ],
+      "value": "defaultLayout"
+    },
+    {
+      "component": "text",
+      "label": "Postcode Text",
+      "name": "postcode-text"
+    }
+  ]
+}
