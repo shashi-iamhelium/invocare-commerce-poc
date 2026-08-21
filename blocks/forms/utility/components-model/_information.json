@@ -1,0 +1,39 @@
+{
+  "fields": [
+    {
+      "name": "block-name",
+      "value": "information"
+    },
+    {
+      "component": "select",
+      "name": "layout",
+      "label": "Layout",
+      "options": [
+        { "name": "Default Layout", "value": "defaultLayout" },
+        { "name": "Two Column", "value": "twoColumn" }
+      ],
+      "value": "defaultLayout"
+    },
+    {
+      "component": "select",
+      "name": "informationIcon",
+      "label": "Information Icon",
+      "options": [
+        {
+          "name": "None",
+          "value": ""
+        },
+        {
+          "name": "Info Icon",
+          "value": "info-icon"
+        }
+      ],
+      "value": "info-icon"
+    },
+    {
+      "component": "richtext",
+      "name": "informationText",
+      "label": "Information Text"
+    }
+  ]
+}

@@ -38,6 +38,7 @@
       "commerce-shipping-status",
       "commerce-wishlist",
       "enrichment",
+      "forms",
       "fragment",
       "image",
       "product-details",
@@ -80,6 +81,17 @@
     "components": [
       "text",
       "image"
+    ]
+  },
+  {
+    "id": "forms",
+    "components": [
+      "form-text-field",
+      "form-options",
+      "postcode",
+      "form-button",
+      "form-hidden",
+      "information"
     ]
   }
 ]

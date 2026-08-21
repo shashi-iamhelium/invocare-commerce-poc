@@ -1,0 +1,714 @@
+.forms {
+  --forms-text-color: var(--color-cool-grey-900);
+  --forms-placeholder-color: var(--color-cool-grey-500);
+  --forms-surface-color: var(--color-cool-grey-50);
+  --forms-border-color: var(--color-cool-grey-100);
+  --forms-focus-color: var(--color-status-information-solid);
+  --forms-error-color: var(--text-status-error);
+  --forms-error-border-color: var(--border-status-error);
+  --forms-error-surface-color: var(--color-status-error-opacity-10);
+  --forms-warning-color: var(--text-status-warning);
+  --forms-warning-border-color: var(--border-status-warning);
+  --forms-warning-surface-color: var(--color-status-warning-opacity-10);
+
+  .visibility-none {
+    visibility: hidden !important;
+  }
+
+  .display-none {
+    display: none !important;
+  }
+
+  a,
+  strong {
+    color: var(--color-button-default);
+    font: var(--body-desktop-md-700);
+  }
+
+  .cmp-form-options,
+  .cmp-form-text,
+  .postcode-search,
+  .yamaha-checkbox {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-default-space-default-1);
+ }
+
+  .cmp-form-feedback__body {
+    display: flex;
+    flex-direction: column;
+
+    .cmp-form-feedback__header {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      flex-direction: column;
+      gap: var(--spacing-default-space-default-5);
+      
+      h5, h3 {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .cmp-form-feedback__img {
+      picture {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .cmp-form-feedback__content {
+      display: flex;
+      text-align: center;
+
+      p {
+        margin: 0;
+        font: var(--body-mobile-md-400);
+      }
+    }
+  }
+
+  .cmp-form-text__help-message-below,
+  .cmp-form-text__error,
+  .cmp-form-options .cmp-form-option__error,
+  .yamaha-checkbox__error {
+    margin-bottom: 0;
+    margin-top: 0;
+    font: var(--body-mobile-xs-500);
+    min-height: 1.5rem;
+  }
+
+  .cmp-form-text__error,
+  .cmp-form-options .cmp-form-option__error {
+    color: var(--forms-error-color);
+    text-align: end;
+  }
+
+  .yamaha-checkbox__error {
+    color: var(--forms-error-color);
+    text-align: start;
+  }
+
+  .cmp-form {
+    .cmp-form__title {
+      margin-bottom: var(--spacing-default-space-default-6);
+    }
+
+    .cmp-form__column {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: var(--spacing-default-space-default-7);
+    }
+
+    .cmp-form__field {
+      width: 100%;
+
+      :last-child {
+        .yamaha-checkbox__error:not(.visibility-none),
+        .cmp-form-text__error:not(.visibility-none) {
+          margin-bottom: var(--spacing-default-space-default-3);
+        }
+      }
+    }
+
+    .cmp-form__button {
+      width: 100%;
+      display: flex;
+      border-top: 1px solid var(--color-cool-grey-50);
+
+      button.cmp-form-button {
+        display: flex;
+        width: 100%;
+        padding: var(--spacing-default-space-default-5) var(--spacing-default-space-default-7);
+        margin: 0 auto;
+        margin-block-start: var(--spacing-default-space-default-7);
+      }
+    }
+
+    .cmp-form-feedback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: var(--spacing-default-space-default-6);
+
+      .cmp-form-feedback__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--spacing-default-space-default-5);
+
+        .cmp-form-feedback__content {
+          display: flex;
+          flex-direction: column;
+          gap: var(--spacing-default-space-default-5);
+          font: var(--body-mobile-md-400);
+
+          > * {
+            margin: 0;
+          }
+        }
+
+        .cmp-form-feedback__img {
+          height: 60px;
+          width: 60px;
+        }
+      }
+
+      .cmp-form-feedback__action {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        button.cmp-button {
+          width: 100%;
+          width: -webkit-fill-available;
+          width: -moz-available;
+          max-width: 100% !important;
+        }
+      }
+    }
+  }
+
+  .cmp-form-text,
+  .postcode-search {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cmp-form-text__label,
+  .cmp-form-options__label,
+  .postcode-search__title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-compact-space-compact-1);
+    color: var(--forms-text-color);
+    font: var(--body-desktop-sm-500);
+  }
+
+  .cmp-form-options__label-required,
+  .cmp-form-text__label-required,
+  .yamaha-checkbox__title-required,
+  .postcode-search__title-required {
+    color: var(--color-red-primary-500) !important;
+  }
+
+  .cmp-form-text__wrapper,
+  .postcode-search__value,
+  .cmp-form-options .yamaha-select__value {
+    background-color: var(--forms-surface-color);
+    border: 1px solid var(--forms-border-color);
+    border-radius: 0.625rem;
+    outline: 0.125rem solid transparent;
+    outline-offset: -0.125rem;
+  }
+
+  .cmp-form-text__wrapper,
+  .postcode-search__value {
+    display: flex;
+    padding: 0.75rem 1rem;
+  }
+
+  .cmp-form-text__wrapper:focus-within,
+  .postcode-search__value:focus-within {
+    outline-color: var(--forms-focus-color);
+  }
+
+  .cmp-form-text__wrapper-text,
+  .cmp-form-text__wrapper-textarea,
+  .postcode-search__input {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    color: var(--forms-text-color);
+    background-color: var(--forms-surface-color);
+    font: var(--body-desktop-md-500);
+  }
+
+  .cmp-form-text__wrapper-text::placeholder,
+  .cmp-form-text__wrapper-textarea::placeholder,
+  .postcode-search__input::placeholder ,
+  /* stylelint-disable selector-no-vendor-prefix */
+  .cmp-form-text__wrapper-text::-webkit-input-placeholder,
+  .cmp-form-text__wrapper-textarea::-webkit-input-placeholder,
+  .postcode-search__input::-webkit-input-placeholder {
+    color: var(--forms-placeholder-color);
+    font: var(--body-desktop-md-500);
+    font-style: normal;
+  }
+
+  .cmp-form-text__wrapper-textarea {
+    resize: none;
+  }
+
+  .cmp-form-options {
+    display: flex;
+    flex-direction: column;
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    .yamaha-select {
+      position: relative;
+    }
+
+    .yamaha-select__value {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--spacing-default-space-default-3);
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      color: var(--color-cool-grey-900);
+      font: var(--body-desktop-md-500);
+    }
+
+    .yamaha-select__value-icon {
+      align-self: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      font-size: 1.25rem;
+    }
+
+    .yamaha-select .yamaha-select__value-icon {
+      transition: transform 0.1s ease-in;
+    }
+
+    .yamaha-select.expanded .yamaha-select__value-icon {
+      transform: rotate(180deg);
+      transition: transform 0.1s ease-out;
+    }
+
+    .yamaha-select__menu {
+      position: absolute;
+      top: 100%;
+      width: -webkit-fill-available;
+      width: -moz-available;
+      margin: 0;
+      opacity: 0;
+      overflow: hidden;
+      z-index: 1;
+      background-color: var(--color-neutral-white);
+      border: 1px solid var(--color-cool-grey-50);
+      border-radius: 0.625rem;
+      box-shadow: 0.125rem 0.125rem 0.5rem -0.125rem rgb(0 0 0 / 4%);
+      transition: all 0.2s;
+    }
+
+    .yamaha-select.expanded .yamaha-select__menu {
+      opacity: 1;
+      margin: var(--spacing-default-space-default-3) 0;
+      z-index: 2;
+      will-change: transform;
+    }
+
+    .yamaha-select__menu-list {
+      box-sizing: border-box;
+      max-height: 0;
+      margin: 0;
+      padding: var(--spacing-default-space-default-4) 0;
+      overflow-y: auto;
+      list-style: none;
+      transition: all 0.2s;
+      font: var(--body-mobile-sm-400);
+    }
+
+    .yamaha-select.expanded .yamaha-select__menu-list {
+      max-height: 18.75rem;
+    }
+
+    .yamaha-select__menu-list-option {
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      font: var(--body-desktop-md-500);
+      color: var(--color-cool-grey-900);
+
+      &.selected,
+      &:hover {
+        background-color: var(--color-status-neutral-opacity-10);
+      }
+
+      &[data-disabled="true"] {
+        background-color: var(--color-status-neutral-opacity-10);
+        pointer-events: none;
+        color: var(--color-grey-400);
+      }
+    }
+
+    .yamaha-select__menu-list[aria-expanded='false'] .yamaha-select__menu-list-option,
+    .yamaha-select__menu-list[aria-expanded='false'] .yamaha-select-react__menu-list-option {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    :where(.yamaha-select:has(.yamaha-select__menu-list-option[data-default-selected="true"][data-disabled="true"][aria-selected="true"])) {
+      .yamaha-select__value {
+        background-color: var(--color-status-neutral-opacity-10);
+        color: var(--color-grey-400);
+      }
+    }
+  }
+
+  .yamaha-checkbox__content {
+    display: flex;
+    flex-direction: row;
+    gap: 1.375rem;
+  }
+
+  .yamaha-checkbox__content.core-form-checkbox {
+    gap: var(--spacing-default-space-default-3);
+  }
+
+  .yamaha-checkbox__field {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    width: fit-content;
+    user-select: none;
+  }
+
+  .yamaha-checkbox__field-checkbox {
+    position: absolute;
+    z-index: 1;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.25rem;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .yamaha-checkbox__field-checkmark {
+    position: relative;
+    min-width: 1.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0.125rem;
+    margin-top: 0.25rem;
+    background-color: var(--color-neutral-white);
+    border: 0.125rem solid var(--color-neutral-black);
+    border-radius: var(--border-radius-default-border-4);
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+
+  .yamaha-checkbox__field-checkmark.active {
+    background-color: var(--forms-text-color);
+    border-color: var(--forms-text-color);
+  }
+
+  .yamaha-checkbox__field-checkmark.active::after {
+    content: '';
+    position: absolute;
+    top: 0.0625rem;
+    left: 0.3125rem;
+    width: 0.25rem;
+    height: 0.5625rem;
+    border: solid var(--color-neutral-white);
+    border-width: 0 0.125rem 0.125rem 0;
+    transform: rotate(45deg);
+  }
+
+  .yamaha-checkbox__field-checkmark.field-error {
+    border-color: var(--forms-error-border-color);
+  }
+
+  .yamaha-checkbox__field-label {
+    display: inline-flex;
+    gap: 0.0625rem;
+    margin-left: var(--spacing-default-space-default-2);
+  }
+
+  .yamaha-checkbox__field-label span {
+    color: var(--forms-text-color);
+    font: var(--body-desktop-md-500);
+  }
+
+  .information {
+    .cmp-information__wrapper:not(.cmp-form-submit-message__wrapper) {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-default-space-default-3);
+      width: fit-content;
+      margin-bottom: var(--spacing-default-space-default-7);
+    }
+
+    .cmp-information__text {
+      font: var(--body-mobile-sm-400);
+      line-height: 24px;
+
+      a {
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    .cmp-information__icon {
+      margin-block-start: 3px;
+    }
+  }
+
+  .cmp-form .information {
+    width: fit-content;
+    margin-inline: auto;
+  }
+
+  .cmp-form__field.field-error+.information {
+    margin-top: var(--spacing-default-space-default-4);
+  }
+
+  input[type='text'],
+  input[type='tel'] {
+    min-height: 1.5rem;
+  }
+
+  &.bg-light-cool-grey {
+    .cmp-form-text__wrapper,
+    .cmp-form-text__wrapper-textarea,
+    .yamaha-select__value {
+      background-color: var(--color-neutral-white);
+    }
+
+    input,
+    .cmp-form-text__wrapper-text,
+    .cmp-form-text__wrapper-textarea,
+    .postcode-search__input {
+      background-color: var(--color-neutral-white);
+      color: var(--color-neutral-black);
+      font: var(--body-desktop-md-500);
+    }
+  }
+
+  .cmp-form-text__wrapper.field-error,
+  .postcode-search__value.field-error,
+  .cmp-form-options .yamaha-select__value.field-error {
+    background-color: var(--forms-error-surface-color);
+    border-color: var(--forms-error-border-color);
+    outline-color: var(--forms-error-border-color);
+  }
+
+  .cmp-form-text__wrapper.field-error .cmp-form-text__wrapper-text,
+  .cmp-form-text__wrapper.field-error .cmp-form-text__wrapper-textarea,
+  .postcode-search__value.field-error .postcode-search__input,
+  .cmp-form-options .yamaha-select__value.field-error .yamaha-select__value-label,
+  .cmp-form-options .yamaha-select__value.field-error .yamaha-select__value-icon {
+    color: var(--forms-error-color);
+    background-color: var(--forms-error-surface-color);
+  }
+
+  .cmp-form-options .yamaha-select:not(:has(.yamaha-select__menu-list-option.selected)) .yamaha-select__value-label,
+  .cmp-form-options .yamaha-select:not(:has(.yamaha-select__menu-list-option.selected)) .yamaha-select__value-icon {
+    color: var(--forms-border-color);
+  }
+
+  .cmp-form-submit-message {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-default-space-default-5);
+    width: 100% !important;
+    margin-top: var(--spacing-default-space-default-6);
+    margin-inline: unset !important;
+
+    .cmp-form-submit-message__assistance p {
+      margin: 0;
+      color: var(--color-cool-grey-10-900);
+      text-align: center;
+      font: var(--body-desktop-lg-400);
+    }
+
+    .cmp-information__wrapper.cmp-form-submit-message__wrapper {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-default-space-default-3);
+      width: 100%;
+      min-height: 3.25rem;
+      padding: var(--spacing-default-space-default-4);
+      border-radius: 0.625rem;
+
+      .cmp-form-submit-message__main p {
+        margin: 0;
+        font: var(--body-desktop-md-500);
+      }
+
+      .cmp-form-submit-message__icon::before {
+        font-size: 1.25rem;
+      }
+    }
+
+    &.cmp-form-submit-message--error {
+      .cmp-information__wrapper.cmp-form-submit-message__wrapper {
+        background: var(--forms-error-surface-color);
+        border: 1px solid var(--forms-error-border-color);
+
+        .cmp-form-submit-message__main p,
+        .cmp-form-submit-message__icon::before {
+          color: var(--forms-error-color);
+        }
+      }
+    }
+
+    &.cmp-form-submit-message--warning {
+      .cmp-information__wrapper.cmp-form-submit-message__wrapper {
+        background: var(--forms-warning-surface-color);
+        border: 1px solid var(--forms-warning-border-color);
+
+        .cmp-form-submit-message__main p,
+        .cmp-form-submit-message__icon::before {
+          color: var(--forms-warning-color);
+        }
+      }
+    }
+  }
+
+  .button--primary.button--brand .cmp-button:disabled {
+    border: var(--border-stroke-default-border-2) solid;
+  }
+
+  .cmp-form__button .cmp-form-button.field-error {
+    background: var(--color-status-error-solid);
+  }
+
+  .cmp-form-text__wrapper-limit {
+    font: var(--body-desktop-sm-400);
+    color: var(--color-cool-grey-600);
+  }
+}
+
+.columns .forms {
+  border-radius: var(--border-radius-default-border-16);
+
+  .cmp-form {
+    padding: var(--spacing-default-space-default-5);
+
+    .cmp-form-feedback__body {
+      gap: var(--spacing-default-space-default-6);
+
+      .cmp-form-feedback__header {
+        display: flex;
+        gap: var(--spacing-default-space-default-3);
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+        
+        h5 {
+          margin-bottom: 0;
+        }
+      }
+
+      .cmp-form-feedback__img {
+        height: 42px;
+        width: 42px;
+
+        picture {
+          display: flex;
+          height: 42px;
+          width: 42px;
+          padding: 4.2px;
+        }
+      }
+
+      .cmp-form-feedback__content {
+        display: flex;
+        text-align: justify;
+
+        h5 {
+          margin: 0;
+        }
+      }
+    }
+
+    .cmp-form-feedback__action {
+      padding-top: var(--spacing-default-space-default-6);
+      border-top: 1px solid var(--color-grey-100);
+    }
+  }
+
+  &.bg-light-cool-grey {
+    background: var(--color-cool-grey-50);
+  }
+
+  .cmp-form__button {
+    border-top: 1px solid var(--color-grey-100);
+  }
+}
+
+@media(min-width: 768px) {
+  .forms {
+    .cmp-form-feedback {
+      .cmp-form-feedback__body {
+        .cmp-form-feedback__content {
+          p {
+            font: var(--body-desktop-lg-400);
+          }
+        }
+      }
+    }
+
+    .cmp-form-text__help-message-below,
+    .cmp-form-text__error,
+    .cmp-form-options .cmp-form-option__error,
+    .yamaha-checkbox__error {
+      font: var(--body-desktop-xs-500);
+    }
+
+    .information {
+      .cmp-information__text {
+        font: var(--body-desktop-sm-400);
+      }
+    }
+
+    .cmp-form-text__wrapper-text, 
+    .cmp-form-text__wrapper-textarea,
+    .postcode-search__input {
+      font: var(--body-desktop-md-500);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .forms {
+    .cmp-form-text__wrapper,
+    .postcode-search__value,
+    .cmp-form-options .yamaha-select__value {
+      padding: 1rem 1.5rem;
+    }
+
+    .information .cmp-information__icon {
+      font-size: 1.125rem;
+    }
+
+    .cmp-form__button button.cmp-form-button {
+      width: 14.6875rem !important;
+    }
+
+    &:not([data-columns-generated='true']) .cmp-form__field[class~='twoColumn'] {
+      width: calc(50% - 1rem);
+    }
+
+    .cmp-form-submit-message {
+      width: fit-content !important;
+      margin-inline: auto !important;
+
+      .cmp-information__wrapper.cmp-form-submit-message__wrapper {
+        display: flex;
+        width: 34.25rem;
+        min-width: 22.5625rem;
+        max-width: 34.25rem;
+      }
+    }
+
+    .cmp-form-feedback__action button.cmp-button {
+      width: 14.6875rem !important;
+      min-width: 14.6875rem;
+      max-width: 14.6875rem !important;
+    }
+  }
+
+  .columns .forms .cmp-form {
+    padding: var(--spacing-default-space-default-8);
+  }
+}

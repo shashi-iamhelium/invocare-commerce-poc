@@ -1,0 +1,50 @@
+{
+  "fields": [
+    {
+      "name": "block-name",
+      "value": "form-button"
+    },
+    {
+      "component": "select",
+      "name": "linkType",
+      "label": "Type",
+      "options": [
+        {
+          "name": "Submit",
+          "value": "submit"
+        },
+        {
+          "name": "Button",
+          "value": "button"
+        }
+      ],
+      "value": "submit"
+    },
+    {
+      "component": "aem-content",
+      "name": "link",
+      "label": "Link",
+      "condition": {
+        "===": [{ "var": "linkType" }, "button"]
+      }
+    },
+    {
+      "component": "text",
+      "name": "linkText",
+      "label": "Title",
+      "description": "Text displayed on the button, if none provided, it defaults to the button type"
+    },
+    {
+      "component": "text",
+      "name": "linkName",
+      "label": "Name",
+      "description": "The name of the button, which is submitted with the form data"
+    },
+    {
+      "component": "text",
+      "name": "linkValue",
+      "label": "Value",
+      "description": "The value of the button, which is submitted with the form data"
+    } 
+  ]
+}
