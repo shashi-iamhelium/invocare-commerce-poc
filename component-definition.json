@@ -301,6 +301,19 @@
           }
         },
         {
+          "title": "Generic Form",
+          "id": "generic-form",
+          "model": "forms",
+          "filter": "generic-form",
+          "plugins": {
+            "da": {
+              "name": "generic-form",
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
           "title": "Fragment",
           "id": "fragment",
           "model": "fragment",

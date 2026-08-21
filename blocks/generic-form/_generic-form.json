@@ -1,0 +1,31 @@
+{
+  "definitions": [
+    {
+      "title": "Generic Form",
+      "id": "generic-form",
+      "model": "forms",
+      "filter": "generic-form",
+      "plugins": {
+        "da": {
+          "name": "generic-form",
+          "rows": 1,
+          "columns": 2
+        }
+      }
+    }
+  ],
+  "models": [],
+  "filters": [
+    {
+      "id": "generic-form",
+      "components": [
+        "form-text-field",
+        "form-options",
+        "postcode",
+        "form-button",
+        "form-hidden",
+        "information"
+      ]
+    }
+  ]
+}
