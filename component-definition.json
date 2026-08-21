@@ -222,9 +222,7 @@
           "filter": "forms",
           "plugins": {
             "da": {
-              "name": "forms",
-              "rows": 1,
-              "columns": 2
+              "type": "key-value-block"
             }
           }
         },
@@ -297,17 +295,6 @@
               "name": "information",
               "rows": 1,
               "columns": 4
-            }
-          }
-        },
-        {
-          "title": "Generic Form",
-          "id": "generic-form",
-          "model": "generic-form",
-          "filter": "generic-form",
-          "plugins": {
-            "da": {
-              "type": "key-value-block"
             }
           }
         },

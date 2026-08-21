@@ -44,9 +44,6 @@
           "...": "../blocks/forms/_*.json#/definitions"
         },
         {
-          "...": "../blocks/generic-form/_*.json#/definitions"
-        },
-        {
           "...": "../blocks/fragment/_*.json#/definitions"
         },
         {

@@ -7,9 +7,7 @@
       "filter": "forms",
       "plugins": {
         "da": {
-          "name": "forms",
-          "rows": 1,
-          "columns": 2
+          "type": "key-value-block"
         }
       }
     },
