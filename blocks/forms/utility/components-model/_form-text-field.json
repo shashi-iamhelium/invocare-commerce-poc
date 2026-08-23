@@ -6,10 +6,6 @@
       "name": "formTextFieldPropertiesTab"
     },
     {
-      "name": "block-name",
-      "value": "form-text-field"
-    },
-    {
       "component": "select",
       "name": "layout",
       "label": "Layout",

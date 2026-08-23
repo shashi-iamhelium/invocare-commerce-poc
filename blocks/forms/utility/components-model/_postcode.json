@@ -1,10 +1,6 @@
 {
   "fields": [
     {
-      "name": "block-name",
-      "value": "postcode"
-    },
-    {
       "component": "select",
       "name": "layout",
       "label": "Layout",

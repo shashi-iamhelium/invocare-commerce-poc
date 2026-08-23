@@ -6,10 +6,6 @@
       "name": "formOptionsPropertiesTab"
     },
     {
-      "name": "block-name",
-      "value": "form-options"
-    },
-    {
       "component": "select",
       "name": "layout",
       "label": "Layout",

@@ -1,10 +1,6 @@
 {
   "fields": [
     {
-      "name": "block-name",
-      "value": "form-button"
-    },
-    {
       "component": "select",
       "name": "linkType",
       "label": "Type",

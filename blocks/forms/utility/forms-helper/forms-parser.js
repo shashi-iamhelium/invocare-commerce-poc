@@ -204,6 +204,20 @@ function createToken(cell, rowIndex, cellIndex) {
   };
 }
 
+function createComponentToken(text, rowIndex) {
+  return {
+    rowIndex,
+    cellIndex: -1,
+    text,
+    html: text,
+    value: text,
+  };
+}
+
+function getRowComponentKey(row) {
+  return Array.from(row?.classList || []).find((className) => COMPONENT_KEYS.has(className)) || '';
+}
+
 function getTokenText(token) {
   return token?.text || '';
 }
@@ -1086,7 +1100,11 @@ export default function parseUEForm(block, targetBlockName = 'forms') {
   let hasSeenComponent = false;
 
   rows.forEach((row, rowIndex) => {
-    const tokens = getRowTokens(row, rowIndex);
+    const rowComponentKey = getRowComponentKey(row);
+    const rowTokens = getRowTokens(row, rowIndex);
+    const tokens = rowComponentKey && !rowTokens.some(isComponentToken)
+      ? [createComponentToken(rowComponentKey, rowIndex), ...rowTokens]
+      : rowTokens;
     const componentIndex = tokens.findIndex(isComponentToken);
 
     if (componentIndex !== -1) {

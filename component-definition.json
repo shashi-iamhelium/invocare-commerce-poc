@@ -222,7 +222,89 @@
           "filter": "forms",
           "plugins": {
             "da": {
-              "type": "key-value-block"
+              "unsafeHTML": "<div class=\"forms\"><div><div>formsTheme</div><div>bg-white</div></div><div><div>title</div><div></div></div><div><div>hideTitle</div><div>false</div></div><div><div>mail-subject</div><div></div></div><div><div>mail-from</div><div></div></div><div><div>mail-to</div><div></div></div><div><div>mail-cc</div><div></div></div><div><div>mail-bcc</div><div></div></div><div><div>form-id</div><div></div></div><div><div>forms-endpoint</div><div></div></div><div><div>image</div><div></div></div><div><div>imageAlt</div><div></div></div><div><div>successMessage</div><div></div></div><div><div>thankYouButtonLabel</div><div></div></div><div><div>submittingButtonLabel</div><div></div></div><div><div>successButtonLabel</div><div></div></div><div><div>errorMessage</div><div></div></div><div><div>assistanceMessage</div><div></div></div><div><div>errorButtonLabel</div><div></div></div><div><div>warningMessage</div><div></div></div></div>",
+              "fields": [
+                {
+                  "name": "formsTheme",
+                  "selector": "div:nth-child(1)>div:nth-child(2)"
+                },
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(2)>div:nth-child(2)"
+                },
+                {
+                  "name": "hideTitle",
+                  "selector": "div:nth-child(3)>div:nth-child(2)"
+                },
+                {
+                  "name": "mail-subject",
+                  "selector": "div:nth-child(4)>div:nth-child(2)"
+                },
+                {
+                  "name": "mail-from",
+                  "selector": "div:nth-child(5)>div:nth-child(2)"
+                },
+                {
+                  "name": "mail-to",
+                  "selector": "div:nth-child(6)>div:nth-child(2)"
+                },
+                {
+                  "name": "mail-cc",
+                  "selector": "div:nth-child(7)>div:nth-child(2)"
+                },
+                {
+                  "name": "mail-bcc",
+                  "selector": "div:nth-child(8)>div:nth-child(2)"
+                },
+                {
+                  "name": "form-id",
+                  "selector": "div:nth-child(9)>div:nth-child(2)"
+                },
+                {
+                  "name": "forms-endpoint",
+                  "selector": "div:nth-child(10)>div:nth-child(2)"
+                },
+                {
+                  "name": "image",
+                  "selector": "div:nth-child(11)>div:nth-child(2)"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "div:nth-child(12)>div:nth-child(2)"
+                },
+                {
+                  "name": "successMessage",
+                  "selector": "div:nth-child(13)>div:nth-child(2)"
+                },
+                {
+                  "name": "thankYouButtonLabel",
+                  "selector": "div:nth-child(14)>div:nth-child(2)"
+                },
+                {
+                  "name": "submittingButtonLabel",
+                  "selector": "div:nth-child(15)>div:nth-child(2)"
+                },
+                {
+                  "name": "successButtonLabel",
+                  "selector": "div:nth-child(16)>div:nth-child(2)"
+                },
+                {
+                  "name": "errorMessage",
+                  "selector": "div:nth-child(17)>div:nth-child(2)"
+                },
+                {
+                  "name": "assistanceMessage",
+                  "selector": "div:nth-child(18)>div:nth-child(2)"
+                },
+                {
+                  "name": "errorButtonLabel",
+                  "selector": "div:nth-child(19)>div:nth-child(2)"
+                },
+                {
+                  "name": "warningMessage",
+                  "selector": "div:nth-child(20)>div:nth-child(2)"
+                }
+              ]
             }
           }
         },
@@ -238,67 +320,67 @@
               "fields": [
                 {
                   "name": "layout",
-                  "selector": "div:nth-child(2)"
+                  "selector": "div:nth-child(1)"
                 },
                 {
                   "name": "formTextFieldConstraintType",
-                  "selector": "div:nth-child(3)"
+                  "selector": "div:nth-child(2)"
                 },
                 {
                   "name": "formTextFieldTextareaTextLines",
-                  "selector": "div:nth-child(4)"
+                  "selector": "div:nth-child(3)"
                 },
                 {
                   "name": "formTextFieldLabel",
-                  "selector": "div:nth-child(5)"
+                  "selector": "div:nth-child(4)"
                 },
                 {
                   "name": "formTextFieldHideLabel",
-                  "selector": "div:nth-child(6)"
+                  "selector": "div:nth-child(5)"
                 },
                 {
                   "name": "formTextFieldName",
-                  "selector": "div:nth-child(7)"
+                  "selector": "div:nth-child(6)"
                 },
                 {
                   "name": "formTextFieldValue",
-                  "selector": "div:nth-child(8)"
+                  "selector": "div:nth-child(7)"
                 },
                 {
                   "name": "formTextFieldTextareaMaxChar",
-                  "selector": "div:nth-child(9)"
+                  "selector": "div:nth-child(8)"
                 },
                 {
                   "name": "formTextFieldValidationType",
-                  "selector": "div:nth-child(10)"
+                  "selector": "div:nth-child(9)"
                 },
                 {
                   "name": "formTextFieldHelpMessage",
-                  "selector": "div:nth-child(11)"
+                  "selector": "div:nth-child(10)"
                 },
                 {
                   "name": "displayHelpMessageAsPlaceholder",
-                  "selector": "div:nth-child(12)"
+                  "selector": "div:nth-child(11)"
                 },
                 {
                   "name": "formTextFieldHelpMessageBelowField",
-                  "selector": "div:nth-child(13)"
+                  "selector": "div:nth-child(12)"
                 },
                 {
                   "name": "formTextFieldTypeValidationMessage",
-                  "selector": "div:nth-child(14)"
+                  "selector": "div:nth-child(13)"
                 },
                 {
                   "name": "formTextFieldRequiredFieldValidation",
-                  "selector": "div:nth-child(15)"
+                  "selector": "div:nth-child(14)"
                 },
                 {
                   "name": "formTextFieldRequiredFieldValidationMessage",
-                  "selector": "div:nth-child(16)"
+                  "selector": "div:nth-child(15)"
                 },
                 {
                   "name": "formTextFieldReadOnlydFieldValidation",
-                  "selector": "div:nth-child(17)"
+                  "selector": "div:nth-child(16)"
                 }
               ]
             }
@@ -316,51 +398,51 @@
               "fields": [
                 {
                   "name": "layout",
-                  "selector": "div:nth-child(2)"
+                  "selector": "div:nth-child(1)"
                 },
                 {
                   "name": "formOptionsType",
-                  "selector": "div:nth-child(3)"
+                  "selector": "div:nth-child(2)"
                 },
                 {
                   "name": "formOptionsCheckboxesAlignment",
-                  "selector": "div:nth-child(4)"
+                  "selector": "div:nth-child(3)"
                 },
                 {
                   "name": "formOptionsCheckboxesIsBoolean",
-                  "selector": "div:nth-child(5)"
+                  "selector": "div:nth-child(4)"
                 },
                 {
                   "name": "formOptionsTitle",
-                  "selector": "div:nth-child(6)"
+                  "selector": "div:nth-child(5)"
                 },
                 {
                   "name": "formOptionsHideTitle",
-                  "selector": "div:nth-child(7)"
+                  "selector": "div:nth-child(6)"
                 },
                 {
                   "name": "formOptionsName",
-                  "selector": "div:nth-child(8)"
+                  "selector": "div:nth-child(7)"
                 },
                 {
                   "name": "formOptionsRequiredFieldValidation",
-                  "selector": "div:nth-child(9)"
+                  "selector": "div:nth-child(8)"
                 },
                 {
                   "name": "formOptionsRequiredFieldValidationMessage",
-                  "selector": "div:nth-child(10)"
+                  "selector": "div:nth-child(9)"
                 },
                 {
                   "name": "formOptionsFieldOptionsDropdown",
-                  "selector": "div:nth-child(11)"
+                  "selector": "div:nth-child(10)"
                 },
                 {
                   "name": "formOptionsFieldOptionsCheckboxes",
-                  "selector": "div:nth-child(12)"
+                  "selector": "div:nth-child(11)"
                 },
                 {
                   "name": "formOptionsAbout",
-                  "selector": "div:nth-child(13)"
+                  "selector": "div:nth-child(12)"
                 }
               ]
             }
@@ -378,11 +460,11 @@
               "fields": [
                 {
                   "name": "layout",
-                  "selector": "div:nth-child(2)"
+                  "selector": "div:nth-child(1)"
                 },
                 {
                   "name": "postcode-text",
-                  "selector": "div:nth-child(3)"
+                  "selector": "div:nth-child(2)"
                 }
               ]
             }
@@ -400,23 +482,23 @@
               "fields": [
                 {
                   "name": "linkType",
-                  "selector": "div:nth-child(2)"
+                  "selector": "div:nth-child(1)"
                 },
                 {
                   "name": "link",
-                  "selector": "div:nth-child(3)>p>a[href]"
+                  "selector": "div:nth-child(2)>p>a[href]"
                 },
                 {
                   "name": "linkText",
-                  "selector": "div:nth-child(4)"
+                  "selector": "div:nth-child(3)"
                 },
                 {
                   "name": "linkName",
-                  "selector": "div:nth-child(5)"
+                  "selector": "div:nth-child(4)"
                 },
                 {
                   "name": "linkValue",
-                  "selector": "div:nth-child(6)"
+                  "selector": "div:nth-child(5)"
                 }
               ]
             }
@@ -434,11 +516,11 @@
               "fields": [
                 {
                   "name": "topicName",
-                  "selector": "div:nth-child(2)"
+                  "selector": "div:nth-child(1)"
                 },
                 {
                   "name": "topicValue",
-                  "selector": "div:nth-child(3)"
+                  "selector": "div:nth-child(2)"
                 }
               ]
             }
@@ -456,15 +538,15 @@
               "fields": [
                 {
                   "name": "layout",
-                  "selector": "div:nth-child(2)"
+                  "selector": "div:nth-child(1)"
                 },
                 {
                   "name": "informationIcon",
-                  "selector": "div:nth-child(3)"
+                  "selector": "div:nth-child(2)"
                 },
                 {
                   "name": "informationText",
-                  "selector": "div:nth-child(4)"
+                  "selector": "div:nth-child(3)"
                 }
               ]
             }

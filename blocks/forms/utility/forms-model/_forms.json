@@ -1,10 +1,6 @@
 {
   "fields": [
     {
-      "name": "block-name",
-      "value": "forms"
-    },
-    {
       "component": "tab",
       "label": "Properties",
       "name": "properties"
@@ -24,26 +20,30 @@
     {
       "component": "text",
       "name": "title",
-      "label": "Title"
+      "label": "Title",
+      "value": ""
     },
     {
       "component": "boolean",
       "name": "hideTitle",
       "label": "Hide Forms title from being displayed?",
-      "description": "Needed if the Forms Title is required only for accessibility purpose and does not impart any additional visual information about the forms"
+      "description": "Needed if the Forms Title is required only for accessibility purpose and does not impart any additional visual information about the forms",
+      "value": false
     },
     {
       "component": "text",
       "name": "mail-subject",
       "label": "Subject",
       "required": true,
-      "description": "Subject that is considered to be sent."
+      "description": "Subject that is considered to be sent.",
+      "value": ""
     },
     {
       "component": "text",
       "name": "mail-from",
       "label": "From",
-      "description": "Email address that the message is considered to be sent from."
+      "description": "Email address that the message is considered to be sent from.",
+      "value": ""
     },
     {
       "component": "text",
@@ -51,7 +51,8 @@
       "label": "To",
       "valueType": "string",
       "multi": true,
-      "description": "Email addresses where the messages will be sent."
+      "description": "Email addresses where the messages will be sent.",
+      "value": ""
     },
     {
       "component": "text",
@@ -59,7 +60,8 @@
       "label": "CC",
       "valueType": "string",
       "multi": true,
-      "description": "Email addresses where the messages will be sent as a copy."
+      "description": "Email addresses where the messages will be sent as a copy.",
+      "value": ""
     },
     {
       "component": "text",
@@ -67,18 +69,21 @@
       "label": "BCC",
       "valueType": "string",
       "multi": true,
-      "description": "Email addresses where the messages will be sent as a copy."
+      "description": "Email addresses where the messages will be sent as a copy.",
+      "value": ""
     },
     {
       "component": "text",
       "name": "form-id",
-      "label": "Form Id"
+      "label": "Form Id",
+      "value": ""
     },
     {
       "component": "text",
       "name": "forms-endpoint",
       "label": "Forms Endpoint",
-      "description": "Optional base URL for the form submission service. Uses the site origin when blank."
+      "description": "Optional base URL for the form submission service. Uses the site origin when blank.",
+      "value": ""
     },
     {
       "component": "tab",
@@ -86,61 +91,64 @@
       "name": "messages"
     },
     {
-      "component": "container",
-      "label": "Success options",
-      "name": "success-options",
-      "fields": [
-        {
-          "component": "reference",
-          "name": "image",
-          "label": "Thank you screen image"
-        },
-        {
-          "component": "text",
-          "name": "imageAlt",
-          "label": "Alternative text for thank you screen image"
-        },
-        {
-          "component": "richtext",
-          "name": "successMessage",
-          "label": "Success message"
-        },
-        {
-          "component": "text",
-          "name": "thankYouButtonLabel",
-          "label": "Thank you message button label"
-        }
-      ]
+      "component": "reference",
+      "name": "image",
+      "label": "Thank you screen image",
+      "value": ""
+    },
+    {
+      "component": "text",
+      "name": "imageAlt",
+      "label": "Alternative text for thank you screen image",
+      "value": ""
+    },
+    {
+      "component": "richtext",
+      "name": "successMessage",
+      "label": "Success message",
+      "value": ""
+    },
+    {
+      "component": "text",
+      "name": "thankYouButtonLabel",
+      "label": "Thank you message button label",
+      "value": ""
     },
     {
       "component": "text",
       "name": "submittingButtonLabel",
-      "label": "Submitting button label"
+      "label": "Submitting button label",
+      "value": ""
     },
     {
       "component": "text",
       "name": "successButtonLabel",
-      "label": "Success button label"
+      "label": "Success button label",
+      "value": ""
     },
     {
       "component": "richtext",
       "name": "errorMessage",
-      "label": "Error Message"
+      "label": "Error Message",
+      "value": ""
     },
     {
       "component": "richtext",
       "name": "assistanceMessage",
-      "label": "Assistance message"
+      "label": "Assistance message",
+      "value": ""
     },
     {
       "component": "text",
       "name": "errorButtonLabel",
-      "label": "Error button label"
+      "label": "Error button label",
+      "value": ""
     },
     {
       "component": "richtext",
       "name": "warningMessage",
-      "label": "Warning message"
+      "label": "Warning message",
+      "value": ""
     }
   ]
 }

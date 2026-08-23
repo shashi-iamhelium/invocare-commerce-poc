@@ -1,10 +1,6 @@
 {
   "fields": [
     {
-      "name": "block-name",
-      "value": "form-hidden"
-    },
-    {
       "component": "text",
       "name": "topicName",
       "label": "Name",
