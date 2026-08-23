@@ -27,7 +27,7 @@
         { "name": "Checkboxes", "value": "checkboxes" },
         { "name": "Drop-down", "value": "drop-down" }
       ],
-      "value": "",
+      "value": "drop-down",
       "description": "Set the type of the form field."
     },
     {
@@ -49,6 +49,7 @@
       "name": "formOptionsCheckboxesIsBoolean",
       "label": "Is a boolean value?",
       "defaultValue": false,
+      "value": false,
       "condition": {
         "===": [{ "var": "formOptionsType" }, "checkboxes"]
       }
@@ -58,20 +59,23 @@
       "name": "formOptionsTitle",
       "label": "Title",
       "required": true,
-      "description": "Legend to describe the role of the field."
+      "description": "Legend to describe the role of the field.",
+      "value": ""
     },
     {
       "component": "boolean",
       "label": "Hide the title from being displayed",
       "description": "Needed if the title is required only for accessibility purpose and does not impart any additional visual information about the field",
-      "name": "formOptionsHideTitle"
+      "name": "formOptionsHideTitle",
+      "value": false
     },
     {
       "component": "text",
       "label": "Name",
       "description": "The name of the field, which is submitted with the form data.",
       "name": "formOptionsName",
-      "required": true
+      "required": true,
+      "value": ""
     },
     {
       "component": "boolean",
@@ -86,7 +90,8 @@
       "description": "Please provide the required message.",
       "condition": {
         "===": [{ "var": "formOptionsRequiredFieldValidation" }, true]
-      }
+      },
+      "value": ""
     },
     {
       "component": "container",
@@ -110,12 +115,14 @@
         {
           "component": "text",
           "label": "Text",
-          "name": "formOptionsFieldOptionsText"
+          "name": "formOptionsFieldOptionsText",
+          "value": ""
         },
         {
           "component": "text",
           "label": "Value",
-          "name": "formOptionsFieldOptionsValue"
+          "name": "formOptionsFieldOptionsValue",
+          "value": ""
         }
       ]
     },
@@ -141,12 +148,14 @@
         {
           "component": "richtext",
           "label": "Text",
-          "name": "formOptionsFieldOptionsCheckboxesRichtext"
+          "name": "formOptionsFieldOptionsCheckboxesRichtext",
+          "value": ""
         },
         {
           "component": "text",
           "label": "Value",
-          "name": "formOptionsFieldOptionsCheckboxesValue"
+          "name": "formOptionsFieldOptionsCheckboxesValue",
+          "value": ""
         }
       ]
     },
@@ -159,7 +168,8 @@
           "component": "text",
           "name": "formOptionsAboutHelpMessage",
           "label": "Help Message",
-          "description": "A hint for the user of what can be entered in the field."
+          "description": "A hint for the user of what can be entered in the field.",
+          "value": ""
         }
       ]
     }

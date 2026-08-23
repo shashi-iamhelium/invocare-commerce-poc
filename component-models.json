@@ -611,7 +611,8 @@
             "name": "Number",
             "value": "number"
           }
-        ]
+        ],
+        "value": "text"
       },
       {
         "component": "number",
@@ -631,25 +632,29 @@
         "component": "text",
         "label": "Label",
         "required": true,
-        "name": "formTextFieldLabel"
+        "name": "formTextFieldLabel",
+        "value": ""
       },
       {
         "component": "boolean",
         "label": "Hide the label from being displayed",
         "description": "Needed if the label is required only for accessibility purpose and does not impart any additional visual information about the field",
-        "name": "formTextFieldHideLabel"
+        "name": "formTextFieldHideLabel",
+        "value": false
       },
       {
         "component": "text",
         "label": "Name",
         "required": true,
-        "name": "formTextFieldName"
+        "name": "formTextFieldName",
+        "value": ""
       },
       {
         "component": "text",
         "label": "Value",
         "name": "formTextFieldValue",
-        "description": "Default value of the field"
+        "description": "Default value of the field",
+        "value": ""
       },
       {
         "component": "number",
@@ -698,7 +703,8 @@
             "name": "NZ Mobile",
             "value": "nz-mobile"
           }
-        ]
+        ],
+        "value": "none"
       },
       {
         "component": "tab",
@@ -709,19 +715,22 @@
         "component": "text",
         "label": "Help Message",
         "name": "formTextFieldHelpMessage",
-        "description": "A hint to the user of what can be entered in the field"
+        "description": "A hint to the user of what can be entered in the field",
+        "value": ""
       },
       {
         "component": "boolean",
         "label": "Display help message as placeholder",
         "name": "displayHelpMessageAsPlaceholder",
-        "description": "Whether to display the help message inside the form input when it is empty and not focused"
+        "description": "Whether to display the help message inside the form input when it is empty and not focused",
+        "value": false
       },
       {
         "component": "richtext",
         "label": "Help message(Below the field)",
         "name": "formTextFieldHelpMessageBelowField",
-        "description": "Help message(Below the field) to be displayed"
+        "description": "Help message(Below the field) to be displayed",
+        "value": ""
       },
       {
         "component": "tab",
@@ -732,13 +741,15 @@
         "component": "textarea",
         "label": "Constraint Message",
         "name": "formTextFieldTypeValidationMessage",
-        "description": "Message displayed as tooltip when submitting the form if the value does not validate the Type chosen"
+        "description": "Message displayed as tooltip when submitting the form if the value does not validate the Type chosen",
+        "value": ""
       },
       {
         "component": "boolean",
         "label": "Required",
         "name": "formTextFieldRequiredFieldValidation",
-        "description": "Whether the user must fill in a value before submitting the form"
+        "description": "Whether the user must fill in a value before submitting the form",
+        "value": false
       },
       {
         "component": "textarea",
@@ -747,13 +758,15 @@
         "description": "Message displayed as tooltip when submitting the form if the value is left empty",
         "condition": {
           "var": "formTextFieldRequiredFieldValidation"
-        }
+        },
+        "value": ""
       },
       {
         "component": "boolean",
         "label": "Make read only",
         "name": "formTextFieldReadOnlydFieldValidation",
-        "description": "Whether the user cannot modify the value of the field"
+        "description": "Whether the user cannot modify the value of the field",
+        "value": false
       }
     ]
   },
@@ -799,7 +812,7 @@
             "value": "drop-down"
           }
         ],
-        "value": "",
+        "value": "drop-down",
         "description": "Set the type of the form field."
       },
       {
@@ -832,6 +845,7 @@
         "name": "formOptionsCheckboxesIsBoolean",
         "label": "Is a boolean value?",
         "defaultValue": false,
+        "value": false,
         "condition": {
           "===": [
             {
@@ -846,20 +860,23 @@
         "name": "formOptionsTitle",
         "label": "Title",
         "required": true,
-        "description": "Legend to describe the role of the field."
+        "description": "Legend to describe the role of the field.",
+        "value": ""
       },
       {
         "component": "boolean",
         "label": "Hide the title from being displayed",
         "description": "Needed if the title is required only for accessibility purpose and does not impart any additional visual information about the field",
-        "name": "formOptionsHideTitle"
+        "name": "formOptionsHideTitle",
+        "value": false
       },
       {
         "component": "text",
         "label": "Name",
         "description": "The name of the field, which is submitted with the form data.",
         "name": "formOptionsName",
-        "required": true
+        "required": true,
+        "value": ""
       },
       {
         "component": "boolean",
@@ -879,7 +896,8 @@
             },
             true
           ]
-        }
+        },
+        "value": ""
       },
       {
         "component": "container",
@@ -910,12 +928,14 @@
           {
             "component": "text",
             "label": "Text",
-            "name": "formOptionsFieldOptionsText"
+            "name": "formOptionsFieldOptionsText",
+            "value": ""
           },
           {
             "component": "text",
             "label": "Value",
-            "name": "formOptionsFieldOptionsValue"
+            "name": "formOptionsFieldOptionsValue",
+            "value": ""
           }
         ]
       },
@@ -948,12 +968,14 @@
           {
             "component": "richtext",
             "label": "Text",
-            "name": "formOptionsFieldOptionsCheckboxesRichtext"
+            "name": "formOptionsFieldOptionsCheckboxesRichtext",
+            "value": ""
           },
           {
             "component": "text",
             "label": "Value",
-            "name": "formOptionsFieldOptionsCheckboxesValue"
+            "name": "formOptionsFieldOptionsCheckboxesValue",
+            "value": ""
           }
         ]
       },
@@ -966,7 +988,8 @@
             "component": "text",
             "name": "formOptionsAboutHelpMessage",
             "label": "Help Message",
-            "description": "A hint for the user of what can be entered in the field."
+            "description": "A hint for the user of what can be entered in the field.",
+            "value": ""
           }
         ]
       }
@@ -998,7 +1021,8 @@
       {
         "component": "text",
         "label": "Postcode Text",
-        "name": "postcode-text"
+        "name": "postcode-text",
+        "value": ""
       }
     ]
   },
@@ -1029,6 +1053,7 @@
         "component": "aem-content",
         "name": "link",
         "label": "Link",
+        "value": "",
         "condition": {
           "===": [
             {
@@ -1042,19 +1067,22 @@
         "component": "text",
         "name": "linkText",
         "label": "Title",
-        "description": "Text displayed on the button, if none provided, it defaults to the button type"
+        "description": "Text displayed on the button, if none provided, it defaults to the button type",
+        "value": ""
       },
       {
         "component": "text",
         "name": "linkName",
         "label": "Name",
-        "description": "The name of the button, which is submitted with the form data"
+        "description": "The name of the button, which is submitted with the form data",
+        "value": ""
       },
       {
         "component": "text",
         "name": "linkValue",
         "label": "Value",
-        "description": "The value of the button, which is submitted with the form data"
+        "description": "The value of the button, which is submitted with the form data",
+        "value": ""
       }
     ]
   },
@@ -1070,13 +1098,15 @@
         "name": "topicName",
         "label": "Name",
         "required": true,
-        "dexcription": "The name of the field, which is submitted with the form data"
+        "description": "The name of the field, which is submitted with the form data",
+        "value": ""
       },
       {
         "component": "text",
         "name": "topicValue",
         "label": "Value",
-        "dexcription": "The value of the field, which is submitted with the form data"
+        "description": "The value of the field, which is submitted with the form data",
+        "value": ""
       }
     ]
   },
@@ -1122,7 +1152,8 @@
       {
         "component": "richtext",
         "name": "informationText",
-        "label": "Information Text"
+        "label": "Information Text",
+        "value": ""
       }
     ]
   },

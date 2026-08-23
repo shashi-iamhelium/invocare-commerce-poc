@@ -24,6 +24,7 @@
       "component": "aem-content",
       "name": "link",
       "label": "Link",
+      "value": "",
       "condition": {
         "===": [{ "var": "linkType" }, "button"]
       }
@@ -32,19 +33,22 @@
       "component": "text",
       "name": "linkText",
       "label": "Title",
-      "description": "Text displayed on the button, if none provided, it defaults to the button type"
+      "description": "Text displayed on the button, if none provided, it defaults to the button type",
+      "value": ""
     },
     {
       "component": "text",
       "name": "linkName",
       "label": "Name",
-      "description": "The name of the button, which is submitted with the form data"
+      "description": "The name of the button, which is submitted with the form data",
+      "value": ""
     },
     {
       "component": "text",
       "name": "linkValue",
       "label": "Value",
-      "description": "The value of the button, which is submitted with the form data"
+      "description": "The value of the button, which is submitted with the form data",
+      "value": ""
     } 
   ]
 }

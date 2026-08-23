@@ -29,7 +29,8 @@
         { "name": "Email", "value": "email" },
         { "name": "Tel", "value": "tel" },
         { "name": "Number", "value": "number" }
-      ]
+      ],
+      "value": "text"
     },
     {
       "component": "number",
@@ -44,25 +45,29 @@
       "component": "text",
       "label": "Label",
       "required": true,
-      "name": "formTextFieldLabel"
+      "name": "formTextFieldLabel",
+      "value": ""
     },
     {
       "component": "boolean",
       "label": "Hide the label from being displayed",
       "description": "Needed if the label is required only for accessibility purpose and does not impart any additional visual information about the field",
-      "name": "formTextFieldHideLabel"
+      "name": "formTextFieldHideLabel",
+      "value": false
     },
     {
       "component": "text",
       "label": "Name",
       "required": true,
-      "name": "formTextFieldName"
+      "name": "formTextFieldName",
+      "value": ""
     },
     {
       "component": "text",
       "label": "Value",
       "name": "formTextFieldValue",
-      "description": "Default value of the field"
+      "description": "Default value of the field",
+      "value": ""
     },
     {
       "component": "number",
@@ -85,7 +90,8 @@
         { "name": "Email", "value": "email" },
         { "name": "AU Mobile", "value": "au-mobile" },
         { "name": "NZ Mobile", "value": "nz-mobile" }
-      ]
+      ],
+      "value": "none"
     },
     {
       "component": "tab",
@@ -96,19 +102,22 @@
       "component": "text",
       "label": "Help Message",
       "name": "formTextFieldHelpMessage",
-      "description": "A hint to the user of what can be entered in the field"
+      "description": "A hint to the user of what can be entered in the field",
+      "value": ""
     },
     {
       "component": "boolean",
       "label": "Display help message as placeholder",
       "name": "displayHelpMessageAsPlaceholder",
-      "description": "Whether to display the help message inside the form input when it is empty and not focused"
+      "description": "Whether to display the help message inside the form input when it is empty and not focused",
+      "value": false
     },
     {
       "component": "richtext",
       "label": "Help message(Below the field)",
       "name": "formTextFieldHelpMessageBelowField",
-      "description": "Help message(Below the field) to be displayed"
+      "description": "Help message(Below the field) to be displayed",
+      "value": ""
     },
     {
       "component": "tab",
@@ -119,26 +128,30 @@
       "component": "textarea",
       "label": "Constraint Message",
       "name": "formTextFieldTypeValidationMessage",
-      "description": "Message displayed as tooltip when submitting the form if the value does not validate the Type chosen"
+      "description": "Message displayed as tooltip when submitting the form if the value does not validate the Type chosen",
+      "value": ""
     },
     {
       "component": "boolean",
       "label": "Required",
       "name": "formTextFieldRequiredFieldValidation",
-      "description": "Whether the user must fill in a value before submitting the form"
+      "description": "Whether the user must fill in a value before submitting the form",
+      "value": false
     },
     {
       "component": "textarea",
       "label": "Required Message",
       "name": "formTextFieldRequiredFieldValidationMessage",
       "description": "Message displayed as tooltip when submitting the form if the value is left empty",
-      "condition": { "var": "formTextFieldRequiredFieldValidation" }
+      "condition": { "var": "formTextFieldRequiredFieldValidation" },
+      "value": ""
     },
     {
       "component": "boolean",
       "label": "Make read only",
       "name": "formTextFieldReadOnlydFieldValidation",
-      "description": "Whether the user cannot modify the value of the field"
+      "description": "Whether the user cannot modify the value of the field",
+      "value": false
     }
   ]
 }

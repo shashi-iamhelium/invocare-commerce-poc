@@ -9,13 +9,15 @@
       "name": "topicName",
       "label": "Name",
       "required": true,
-      "dexcription": "The name of the field, which is submitted with the form data"
+      "description": "The name of the field, which is submitted with the form data",
+      "value": ""
     },
     {
       "component": "text",
       "name": "topicValue",
       "label": "Value",
-      "dexcription": "The value of the field, which is submitted with the form data"
+      "description": "The value of the field, which is submitted with the form data",
+      "value": ""
     }
   ]
 }

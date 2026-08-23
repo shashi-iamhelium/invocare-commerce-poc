@@ -19,7 +19,25 @@
         "da": {
           "name": "form-text-field",
           "rows": 1,
-          "columns": 16
+          "columns": 16,
+          "fields": [
+            { "name": "layout", "selector": "div:nth-child(2)" },
+            { "name": "formTextFieldConstraintType", "selector": "div:nth-child(3)" },
+            { "name": "formTextFieldTextareaTextLines", "selector": "div:nth-child(4)" },
+            { "name": "formTextFieldLabel", "selector": "div:nth-child(5)" },
+            { "name": "formTextFieldHideLabel", "selector": "div:nth-child(6)" },
+            { "name": "formTextFieldName", "selector": "div:nth-child(7)" },
+            { "name": "formTextFieldValue", "selector": "div:nth-child(8)" },
+            { "name": "formTextFieldTextareaMaxChar", "selector": "div:nth-child(9)" },
+            { "name": "formTextFieldValidationType", "selector": "div:nth-child(10)" },
+            { "name": "formTextFieldHelpMessage", "selector": "div:nth-child(11)" },
+            { "name": "displayHelpMessageAsPlaceholder", "selector": "div:nth-child(12)" },
+            { "name": "formTextFieldHelpMessageBelowField", "selector": "div:nth-child(13)" },
+            { "name": "formTextFieldTypeValidationMessage", "selector": "div:nth-child(14)" },
+            { "name": "formTextFieldRequiredFieldValidation", "selector": "div:nth-child(15)" },
+            { "name": "formTextFieldRequiredFieldValidationMessage", "selector": "div:nth-child(16)" },
+            { "name": "formTextFieldReadOnlydFieldValidation", "selector": "div:nth-child(17)" }
+          ]
         }
       }
     },
@@ -31,7 +49,21 @@
         "da": {
           "name": "form-options",
           "rows": 1,
-          "columns": 12
+          "columns": 12,
+          "fields": [
+            { "name": "layout", "selector": "div:nth-child(2)" },
+            { "name": "formOptionsType", "selector": "div:nth-child(3)" },
+            { "name": "formOptionsCheckboxesAlignment", "selector": "div:nth-child(4)" },
+            { "name": "formOptionsCheckboxesIsBoolean", "selector": "div:nth-child(5)" },
+            { "name": "formOptionsTitle", "selector": "div:nth-child(6)" },
+            { "name": "formOptionsHideTitle", "selector": "div:nth-child(7)" },
+            { "name": "formOptionsName", "selector": "div:nth-child(8)" },
+            { "name": "formOptionsRequiredFieldValidation", "selector": "div:nth-child(9)" },
+            { "name": "formOptionsRequiredFieldValidationMessage", "selector": "div:nth-child(10)" },
+            { "name": "formOptionsFieldOptionsDropdown", "selector": "div:nth-child(11)" },
+            { "name": "formOptionsFieldOptionsCheckboxes", "selector": "div:nth-child(12)" },
+            { "name": "formOptionsAbout", "selector": "div:nth-child(13)" }
+          ]
         }
       }
     },
@@ -43,7 +75,11 @@
         "da": {
           "name": "postcode",
           "rows": 1,
-          "columns": 3
+          "columns": 2,
+          "fields": [
+            { "name": "layout", "selector": "div:nth-child(2)" },
+            { "name": "postcode-text", "selector": "div:nth-child(3)" }
+          ]
         }
       }
     },
@@ -55,7 +91,14 @@
         "da": {
           "name": "form-button",
           "rows": 1,
-          "columns": 5
+          "columns": 5,
+          "fields": [
+            { "name": "linkType", "selector": "div:nth-child(2)" },
+            { "name": "link", "selector": "div:nth-child(3)>p>a[href]" },
+            { "name": "linkText", "selector": "div:nth-child(4)" },
+            { "name": "linkName", "selector": "div:nth-child(5)" },
+            { "name": "linkValue", "selector": "div:nth-child(6)" }
+          ]
         }
       }
     },
@@ -67,7 +110,11 @@
         "da": {
           "name": "form-hidden",
           "rows": 1,
-          "columns": 3
+          "columns": 2,
+          "fields": [
+            { "name": "topicName", "selector": "div:nth-child(2)" },
+            { "name": "topicValue", "selector": "div:nth-child(3)" }
+          ]
         }
       }
     },
@@ -79,7 +126,12 @@
         "da": {
           "name": "information",
           "rows": 1,
-          "columns": 4
+          "columns": 3,
+          "fields": [
+            { "name": "layout", "selector": "div:nth-child(2)" },
+            { "name": "informationIcon", "selector": "div:nth-child(3)" },
+            { "name": "informationText", "selector": "div:nth-child(4)" }
+          ]
         }
       }
     }

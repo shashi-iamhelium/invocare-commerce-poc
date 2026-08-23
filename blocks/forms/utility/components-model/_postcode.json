@@ -17,7 +17,8 @@
     {
       "component": "text",
       "label": "Postcode Text",
-      "name": "postcode-text"
+      "name": "postcode-text",
+      "value": ""
     }
   ]
 }
