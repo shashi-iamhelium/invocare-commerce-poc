@@ -1,0 +1,11 @@
+.iframe {
+  width: 100%;
+}
+
+.iframe .iframe-frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+}
+ 

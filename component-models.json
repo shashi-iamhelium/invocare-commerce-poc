@@ -409,10 +409,6 @@
     "id": "forms",
     "fields": [
       {
-        "name": "block-name",
-        "value": "forms"
-      },
-      {
         "component": "tab",
         "label": "Properties",
         "name": "properties"
@@ -438,26 +434,30 @@
       {
         "component": "text",
         "name": "title",
-        "label": "Title"
+        "label": "Title",
+        "value": ""
       },
       {
         "component": "boolean",
         "name": "hideTitle",
         "label": "Hide Forms title from being displayed?",
-        "description": "Needed if the Forms Title is required only for accessibility purpose and does not impart any additional visual information about the forms"
+        "description": "Needed if the Forms Title is required only for accessibility purpose and does not impart any additional visual information about the forms",
+        "value": false
       },
       {
         "component": "text",
         "name": "mail-subject",
         "label": "Subject",
         "required": true,
-        "description": "Subject that is considered to be sent."
+        "description": "Subject that is considered to be sent.",
+        "value": ""
       },
       {
         "component": "text",
         "name": "mail-from",
         "label": "From",
-        "description": "Email address that the message is considered to be sent from."
+        "description": "Email address that the message is considered to be sent from.",
+        "value": ""
       },
       {
         "component": "text",
@@ -465,7 +465,8 @@
         "label": "To",
         "valueType": "string",
         "multi": true,
-        "description": "Email addresses where the messages will be sent."
+        "description": "Email addresses where the messages will be sent.",
+        "value": ""
       },
       {
         "component": "text",
@@ -473,7 +474,8 @@
         "label": "CC",
         "valueType": "string",
         "multi": true,
-        "description": "Email addresses where the messages will be sent as a copy."
+        "description": "Email addresses where the messages will be sent as a copy.",
+        "value": ""
       },
       {
         "component": "text",
@@ -481,18 +483,21 @@
         "label": "BCC",
         "valueType": "string",
         "multi": true,
-        "description": "Email addresses where the messages will be sent as a copy."
+        "description": "Email addresses where the messages will be sent as a copy.",
+        "value": ""
       },
       {
         "component": "text",
         "name": "form-id",
-        "label": "Form Id"
+        "label": "Form Id",
+        "value": ""
       },
       {
         "component": "text",
         "name": "forms-endpoint",
         "label": "Forms Endpoint",
-        "description": "Optional base URL for the form submission service. Uses the site origin when blank."
+        "description": "Optional base URL for the form submission service. Uses the site origin when blank.",
+        "value": ""
       },
       {
         "component": "tab",
@@ -500,61 +505,64 @@
         "name": "messages"
       },
       {
-        "component": "container",
-        "label": "Success options",
-        "name": "success-options",
-        "fields": [
-          {
-            "component": "reference",
-            "name": "image",
-            "label": "Thank you screen image"
-          },
-          {
-            "component": "text",
-            "name": "imageAlt",
-            "label": "Alternative text for thank you screen image"
-          },
-          {
-            "component": "richtext",
-            "name": "successMessage",
-            "label": "Success message"
-          },
-          {
-            "component": "text",
-            "name": "thankYouButtonLabel",
-            "label": "Thank you message button label"
-          }
-        ]
+        "component": "reference",
+        "name": "image",
+        "label": "Thank you screen image",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alternative text for thank you screen image",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "successMessage",
+        "label": "Success message",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "name": "thankYouButtonLabel",
+        "label": "Thank you message button label",
+        "value": ""
       },
       {
         "component": "text",
         "name": "submittingButtonLabel",
-        "label": "Submitting button label"
+        "label": "Submitting button label",
+        "value": ""
       },
       {
         "component": "text",
         "name": "successButtonLabel",
-        "label": "Success button label"
+        "label": "Success button label",
+        "value": ""
       },
       {
         "component": "richtext",
         "name": "errorMessage",
-        "label": "Error Message"
+        "label": "Error Message",
+        "value": ""
       },
       {
         "component": "richtext",
         "name": "assistanceMessage",
-        "label": "Assistance message"
+        "label": "Assistance message",
+        "value": ""
       },
       {
         "component": "text",
         "name": "errorButtonLabel",
-        "label": "Error button label"
+        "label": "Error button label",
+        "value": ""
       },
       {
         "component": "richtext",
         "name": "warningMessage",
-        "label": "Warning message"
+        "label": "Warning message",
+        "value": ""
       }
     ]
   },
@@ -565,10 +573,6 @@
         "component": "tab",
         "label": "Properties",
         "name": "formTextFieldPropertiesTab"
-      },
-      {
-        "name": "block-name",
-        "value": "form-text-field"
       },
       {
         "component": "select",
@@ -611,7 +615,8 @@
             "name": "Number",
             "value": "number"
           }
-        ]
+        ],
+        "value": "text"
       },
       {
         "component": "number",
@@ -631,25 +636,29 @@
         "component": "text",
         "label": "Label",
         "required": true,
-        "name": "formTextFieldLabel"
+        "name": "formTextFieldLabel",
+        "value": ""
       },
       {
         "component": "boolean",
         "label": "Hide the label from being displayed",
         "description": "Needed if the label is required only for accessibility purpose and does not impart any additional visual information about the field",
-        "name": "formTextFieldHideLabel"
+        "name": "formTextFieldHideLabel",
+        "value": false
       },
       {
         "component": "text",
         "label": "Name",
         "required": true,
-        "name": "formTextFieldName"
+        "name": "formTextFieldName",
+        "value": ""
       },
       {
         "component": "text",
         "label": "Value",
         "name": "formTextFieldValue",
-        "description": "Default value of the field"
+        "description": "Default value of the field",
+        "value": ""
       },
       {
         "component": "number",
@@ -698,7 +707,8 @@
             "name": "NZ Mobile",
             "value": "nz-mobile"
           }
-        ]
+        ],
+        "value": "none"
       },
       {
         "component": "tab",
@@ -709,19 +719,22 @@
         "component": "text",
         "label": "Help Message",
         "name": "formTextFieldHelpMessage",
-        "description": "A hint to the user of what can be entered in the field"
+        "description": "A hint to the user of what can be entered in the field",
+        "value": ""
       },
       {
         "component": "boolean",
         "label": "Display help message as placeholder",
         "name": "displayHelpMessageAsPlaceholder",
-        "description": "Whether to display the help message inside the form input when it is empty and not focused"
+        "description": "Whether to display the help message inside the form input when it is empty and not focused",
+        "value": false
       },
       {
         "component": "richtext",
         "label": "Help message(Below the field)",
         "name": "formTextFieldHelpMessageBelowField",
-        "description": "Help message(Below the field) to be displayed"
+        "description": "Help message(Below the field) to be displayed",
+        "value": ""
       },
       {
         "component": "tab",
@@ -732,13 +745,15 @@
         "component": "textarea",
         "label": "Constraint Message",
         "name": "formTextFieldTypeValidationMessage",
-        "description": "Message displayed as tooltip when submitting the form if the value does not validate the Type chosen"
+        "description": "Message displayed as tooltip when submitting the form if the value does not validate the Type chosen",
+        "value": ""
       },
       {
         "component": "boolean",
         "label": "Required",
         "name": "formTextFieldRequiredFieldValidation",
-        "description": "Whether the user must fill in a value before submitting the form"
+        "description": "Whether the user must fill in a value before submitting the form",
+        "value": false
       },
       {
         "component": "textarea",
@@ -747,13 +762,15 @@
         "description": "Message displayed as tooltip when submitting the form if the value is left empty",
         "condition": {
           "var": "formTextFieldRequiredFieldValidation"
-        }
+        },
+        "value": ""
       },
       {
         "component": "boolean",
         "label": "Make read only",
         "name": "formTextFieldReadOnlydFieldValidation",
-        "description": "Whether the user cannot modify the value of the field"
+        "description": "Whether the user cannot modify the value of the field",
+        "value": false
       }
     ]
   },
@@ -764,10 +781,6 @@
         "component": "tab",
         "label": "Properties",
         "name": "formOptionsPropertiesTab"
-      },
-      {
-        "name": "block-name",
-        "value": "form-options"
       },
       {
         "component": "select",
@@ -799,7 +812,7 @@
             "value": "drop-down"
           }
         ],
-        "value": "",
+        "value": "drop-down",
         "description": "Set the type of the form field."
       },
       {
@@ -832,6 +845,7 @@
         "name": "formOptionsCheckboxesIsBoolean",
         "label": "Is a boolean value?",
         "defaultValue": false,
+        "value": false,
         "condition": {
           "===": [
             {
@@ -846,20 +860,23 @@
         "name": "formOptionsTitle",
         "label": "Title",
         "required": true,
-        "description": "Legend to describe the role of the field."
+        "description": "Legend to describe the role of the field.",
+        "value": ""
       },
       {
         "component": "boolean",
         "label": "Hide the title from being displayed",
         "description": "Needed if the title is required only for accessibility purpose and does not impart any additional visual information about the field",
-        "name": "formOptionsHideTitle"
+        "name": "formOptionsHideTitle",
+        "value": false
       },
       {
         "component": "text",
         "label": "Name",
         "description": "The name of the field, which is submitted with the form data.",
         "name": "formOptionsName",
-        "required": true
+        "required": true,
+        "value": ""
       },
       {
         "component": "boolean",
@@ -879,7 +896,8 @@
             },
             true
           ]
-        }
+        },
+        "value": ""
       },
       {
         "component": "container",
@@ -910,12 +928,14 @@
           {
             "component": "text",
             "label": "Text",
-            "name": "formOptionsFieldOptionsText"
+            "name": "formOptionsFieldOptionsText",
+            "value": ""
           },
           {
             "component": "text",
             "label": "Value",
-            "name": "formOptionsFieldOptionsValue"
+            "name": "formOptionsFieldOptionsValue",
+            "value": ""
           }
         ]
       },
@@ -948,12 +968,14 @@
           {
             "component": "richtext",
             "label": "Text",
-            "name": "formOptionsFieldOptionsCheckboxesRichtext"
+            "name": "formOptionsFieldOptionsCheckboxesRichtext",
+            "value": ""
           },
           {
             "component": "text",
             "label": "Value",
-            "name": "formOptionsFieldOptionsCheckboxesValue"
+            "name": "formOptionsFieldOptionsCheckboxesValue",
+            "value": ""
           }
         ]
       },
@@ -966,7 +988,8 @@
             "component": "text",
             "name": "formOptionsAboutHelpMessage",
             "label": "Help Message",
-            "description": "A hint for the user of what can be entered in the field."
+            "description": "A hint for the user of what can be entered in the field.",
+            "value": ""
           }
         ]
       }
@@ -975,10 +998,6 @@
   {
     "id": "postcode",
     "fields": [
-      {
-        "name": "block-name",
-        "value": "postcode"
-      },
       {
         "component": "select",
         "name": "layout",
@@ -998,17 +1017,14 @@
       {
         "component": "text",
         "label": "Postcode Text",
-        "name": "postcode-text"
+        "name": "postcode-text",
+        "value": ""
       }
     ]
   },
   {
     "id": "form-button",
     "fields": [
-      {
-        "name": "block-name",
-        "value": "form-button"
-      },
       {
         "component": "select",
         "name": "linkType",
@@ -1029,6 +1045,7 @@
         "component": "aem-content",
         "name": "link",
         "label": "Link",
+        "value": "",
         "condition": {
           "===": [
             {
@@ -1042,19 +1059,22 @@
         "component": "text",
         "name": "linkText",
         "label": "Title",
-        "description": "Text displayed on the button, if none provided, it defaults to the button type"
+        "description": "Text displayed on the button, if none provided, it defaults to the button type",
+        "value": ""
       },
       {
         "component": "text",
         "name": "linkName",
         "label": "Name",
-        "description": "The name of the button, which is submitted with the form data"
+        "description": "The name of the button, which is submitted with the form data",
+        "value": ""
       },
       {
         "component": "text",
         "name": "linkValue",
         "label": "Value",
-        "description": "The value of the button, which is submitted with the form data"
+        "description": "The value of the button, which is submitted with the form data",
+        "value": ""
       }
     ]
   },
@@ -1062,31 +1082,25 @@
     "id": "form-hidden",
     "fields": [
       {
-        "name": "block-name",
-        "value": "form-hidden"
-      },
-      {
         "component": "text",
         "name": "topicName",
         "label": "Name",
         "required": true,
-        "dexcription": "The name of the field, which is submitted with the form data"
+        "description": "The name of the field, which is submitted with the form data",
+        "value": ""
       },
       {
         "component": "text",
         "name": "topicValue",
         "label": "Value",
-        "dexcription": "The value of the field, which is submitted with the form data"
+        "description": "The value of the field, which is submitted with the form data",
+        "value": ""
       }
     ]
   },
   {
     "id": "information",
     "fields": [
-      {
-        "name": "block-name",
-        "value": "information"
-      },
       {
         "component": "select",
         "name": "layout",
@@ -1122,7 +1136,8 @@
       {
         "component": "richtext",
         "name": "informationText",
-        "label": "Information Text"
+        "label": "Information Text",
+        "value": ""
       }
     ]
   },
@@ -1139,159 +1154,6 @@
         "component": "text",
         "name": "fragmentUrlText",
         "label": "Fragment URL Text"
-      }
-    ]
-  },
-  {
-    "id": "generic-form",
-    "fields": [
-      {
-        "name": "block-name",
-        "value": "forms"
-      },
-      {
-        "component": "tab",
-        "label": "Properties",
-        "name": "properties"
-      },
-      {
-        "component": "select",
-        "name": "formsTheme",
-        "label": "Theme",
-        "valueType": "string",
-        "description": "Select only one option from each category.",
-        "options": [
-          {
-            "name": "White",
-            "value": "bg-white"
-          },
-          {
-            "name": "Cool Grey - Light",
-            "value": "bg-light-cool-grey"
-          }
-        ],
-        "value": "bg-white"
-      },
-      {
-        "component": "text",
-        "name": "title",
-        "label": "Title"
-      },
-      {
-        "component": "boolean",
-        "name": "hideTitle",
-        "label": "Hide Forms title from being displayed?",
-        "description": "Needed if the Forms Title is required only for accessibility purpose and does not impart any additional visual information about the forms"
-      },
-      {
-        "component": "text",
-        "name": "mail-subject",
-        "label": "Subject",
-        "required": true,
-        "description": "Subject that is considered to be sent."
-      },
-      {
-        "component": "text",
-        "name": "mail-from",
-        "label": "From",
-        "description": "Email address that the message is considered to be sent from."
-      },
-      {
-        "component": "text",
-        "name": "mail-to",
-        "label": "To",
-        "valueType": "string",
-        "multi": true,
-        "description": "Email addresses where the messages will be sent."
-      },
-      {
-        "component": "text",
-        "name": "mail-cc",
-        "label": "CC",
-        "valueType": "string",
-        "multi": true,
-        "description": "Email addresses where the messages will be sent as a copy."
-      },
-      {
-        "component": "text",
-        "name": "mail-bcc",
-        "label": "BCC",
-        "valueType": "string",
-        "multi": true,
-        "description": "Email addresses where the messages will be sent as a copy."
-      },
-      {
-        "component": "text",
-        "name": "form-id",
-        "label": "Form Id"
-      },
-      {
-        "component": "text",
-        "name": "forms-endpoint",
-        "label": "Forms Endpoint",
-        "description": "Optional base URL for the form submission service. Uses the site origin when blank."
-      },
-      {
-        "component": "tab",
-        "label": "Messages",
-        "name": "messages"
-      },
-      {
-        "component": "container",
-        "label": "Success options",
-        "name": "success-options",
-        "fields": [
-          {
-            "component": "reference",
-            "name": "image",
-            "label": "Thank you screen image"
-          },
-          {
-            "component": "text",
-            "name": "imageAlt",
-            "label": "Alternative text for thank you screen image"
-          },
-          {
-            "component": "richtext",
-            "name": "successMessage",
-            "label": "Success message"
-          },
-          {
-            "component": "text",
-            "name": "thankYouButtonLabel",
-            "label": "Thank you message button label"
-          }
-        ]
-      },
-      {
-        "component": "text",
-        "name": "submittingButtonLabel",
-        "label": "Submitting button label"
-      },
-      {
-        "component": "text",
-        "name": "successButtonLabel",
-        "label": "Success button label"
-      },
-      {
-        "component": "richtext",
-        "name": "errorMessage",
-        "label": "Error Message"
-      },
-      {
-        "component": "richtext",
-        "name": "assistanceMessage",
-        "label": "Assistance message"
-      },
-      {
-        "component": "text",
-        "name": "errorButtonLabel",
-        "label": "Error button label"
-      },
-      {
-        "component": "richtext",
-        "name": "warningMessage",
-        "label": "Warning message"
       }
     ]
   },

@@ -4,108 +4,30 @@
       "title": "Forms",
       "id": "forms",
       "model": "forms",
-      "filter": "forms",
       "plugins": {
         "da": {
-          "name": "forms",
-          "rows": 1,
-          "columns": 2
-        }
-      }
-    },
-    {
-      "title": "Form Text Field",
-      "id": "form-text-field",
-      "model": "form-text-field",
-      "plugins": {
-        "da": {
-          "name": "form-text-field",
-          "rows": 1,
-          "columns": 16
-        }
-      }
-    },
-    {
-      "title": "Form Options",
-      "id": "form-options",
-      "model": "form-options",
-      "plugins": {
-        "da": {
-          "name": "form-options",
-          "rows": 1,
-          "columns": 12
-        }
-      }
-    },
-    {
-      "title": "Postcode",
-      "id": "postcode",
-      "model": "postcode",
-      "plugins": {
-        "da": {
-          "name": "postcode",
-          "rows": 1,
-          "columns": 3
-        }
-      }
-    },
-    {
-      "title": "Form Button",
-      "id": "form-button",
-      "model": "form-button",
-      "plugins": {
-        "da": {
-          "name": "form-button",
-          "rows": 1,
-          "columns": 5
-        }
-      }
-    },
-    {
-      "title": "Form Hidden",
-      "id": "form-hidden",
-      "model": "form-hidden",
-      "plugins": {
-        "da": {
-          "name": "form-hidden",
-          "rows": 1,
-          "columns": 3
-        }
-      }
-    },
-    {
-      "title": "Information",
-      "id": "information",
-      "model": "information",
-      "plugins": {
-        "da": {
-          "name": "information",
-          "rows": 1,
-          "columns": 4
+          "unsafeHTML": "<div class=\"forms\"><div><div><a href=\"/forms/enquire-now.json\">/forms/enquire-now.json</a></div></div></div>",
+          "fields": [
+            {
+              "name": "form",
+              "selector": "a[href]"
+            }
+          ]
         }
       }
     }
   ],
   "models": [
-    { "id": "forms", "...": "./utility/forms-model/_forms.json"},
-    { "id": "form-text-field", "...": "./utility/components-model/_form-text-field.json" },
-    { "id": "form-options", "...": "./utility/components-model/_form-options.json" },
-    { "id": "postcode", "...": "./utility/components-model/_postcode.json" },
-    { "id": "form-button", "...": "./utility/components-model/_form-button.json" },
-    { "id": "form-hidden", "...": "./utility/components-model/_form-hidden.json"},
-    { "id": "information", "...": "./utility/components-model/_information.json" }
-  ],
-  "filters": [
     {
       "id": "forms",
-      "components": [
-        "form-text-field",
-        "form-options",
-        "postcode",
-        "form-button",
-        "form-hidden",
-        "information"
+      "fields": [
+        {
+          "component": "reference",
+          "name": "form",
+          "label": "Form spreadsheet JSON"
+        }
       ]
     }
-  ]
+  ],
+  "filters": []
 }
