@@ -13,10 +13,10 @@ function applyBrandDesign() {
   const brand = urlParams.get('brand') || urlParams.get('theme') || 'default';
 
   const checkMain = setInterval(() => {
-    const mainElement = document.querySelector('main');
-    if (mainElement) {
+    const formElement = document.querySelector('.forms-container');
+    if (formElement) {
       // Sets <main data-brand="inv"> or <main data-brand="brand-b">
-      mainElement.setAttribute('data-brand', brand);
+      formElement.setAttribute('data-theme', brand);
       clearInterval(checkMain);
     }
   }, 50);
