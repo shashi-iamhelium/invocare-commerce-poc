@@ -2,6 +2,16 @@
   background-color: #002334;
 }
 
+.theme-inv
+{
+  background-color: #002334;
+}
+
+.theme-smp
+{
+  background-color: #5f5f5f;
+}
+
 .forms {
   --form-color-text: #002334;
   --form-color-muted: #5f5f5f;
