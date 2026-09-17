@@ -22,6 +22,9 @@ function getFirstLink(block) {
   return block.querySelector('a[href]');
 }
 
+/**
+ * Keep the existing URL logic.
+ */
 function getSourceUrl(block) {
   const link = getFirstLink(block);
   const source = link?.textContent;
