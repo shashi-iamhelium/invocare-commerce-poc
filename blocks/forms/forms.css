@@ -1,5 +1,18 @@
-[data-theme="inv"]{
-  background-color: #002334;
+
+[data-theme="inv"] {
+  background-color: beige;
+}
+ 
+[data-theme="smp"] {
+  background-color: #eef3f6;
+}
+ 
+[data-font="barlow"]{
+  font-family: barlow, adobe-clean, roboto, system-ui;
+}
+ 
+[data-font="sans-sereif"]{
+  font-family: sans-serif, system-ui;
 }
 
 .forms {
