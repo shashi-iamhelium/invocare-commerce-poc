@@ -4,9 +4,6 @@ const IFRAME_PARAMS_MESSAGE_TYPE = 'iframe-form-params';
 
 /**
  * Convert a parameter value into a safe CSS class value.
- *
- * Example:
- * "Barlow Font" -> "barlow-font"
  */
 function normalizeClassValue(value = '') {
   return String(value)
@@ -19,17 +16,7 @@ function normalizeClassValue(value = '') {
 
 /**
  * Apply parameters as body classes.
- *
- * Example:
- *
- * {
- *   theme: 'inv',
- *   font: 'barlow'
- * }
- *
- * becomes:
- *
- * <body class="theme-inv font-barlow">
+ * ex:- <body class="brand-inv font-barlow">
  */
 function applyParamsToBody(params = {}) {
   Object.entries(params).forEach(([key, value]) => {
@@ -47,22 +34,6 @@ function applyParamsToBody(params = {}) {
 }
 
 /**
- * Read parameters from the form page URL.
- *
- * This supports direct URLs such as:
- *
- */
-function applyUrlParamsToBody() {
-  const params = new URLSearchParams(window.location.search);
-
-  if (!params.size) {
-    return;
-  }
-
-  applyParamsToBody(Object.fromEntries(params.entries()));
-}
-
-/**
  * Listen for parameters sent by the parent iframe.
  *
  * The parent iframe.js sends:
@@ -70,8 +41,8 @@ function applyUrlParamsToBody() {
  * {
  *   type: 'iframe-form-params',
  *   params: {
- *     theme: 'inv',
- *     font: 'barlow'
+ *     theme,
+ *     font
  *   }
  * }
  */
@@ -94,17 +65,12 @@ function bindIframeParamsListener() {
 export default async function decorate(block) {
   try {
     /**
-     * 1. Support direct/local URL parameters.
-     */
-    applyUrlParamsToBody();
-
-    /**
-     * 2. Support parameters passed from the iframe parent.
+     * Support parameters passed from the iframe parent.
      */
     bindIframeParamsListener();
 
     /**
-     * 3. Render the form.
+     * Render the form.
      */
     await initForms(block);
   } catch (error) {
