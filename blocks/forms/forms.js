@@ -27,3 +27,12 @@ if (document.readyState === 'loading') {
 } else {
   applyBrandDesign();
 }
+window.addEventListener('message', (event) => {
+  // Validate origin for security
+  if (!event.origin.includes('localhost:3001')) return;
+
+  if (event.data && event.data.type === 'SET_THEME') {
+    const mainEl = document.querySelector('main');
+    if (mainEl) mainEl.setAttribute('data-theme', event.data.theme);
+  }
+});
