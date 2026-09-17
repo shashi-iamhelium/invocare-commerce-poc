@@ -16,7 +16,7 @@ function normalizeClassValue(value = '') {
 
 /**
  * Apply parameters as body classes.
- * ex:- <body class="brand-inv font-barlow">
+ * ex:- <body class="theme-inv font-barlow">
  */
 function applyParamsToBody(params = {}) {
   Object.entries(params).forEach(([key, value]) => {
