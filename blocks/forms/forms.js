@@ -1,5 +1,10 @@
 import initForms from './utility/form-fields-renderer.js';
 
+function removePageShell() {
+  document.querySelector('header')?.remove();
+  document.querySelector('footer')?.remove();
+}
+
 function applyUrlParamsToBody() {
   const params = new URLSearchParams(window.location.search);
 
@@ -21,6 +26,8 @@ function applyUrlParamsToBody() {
 
 export default async function decorate(block) {
   try {
+    removePageShell();
+
     /**
      * Apply parameters directly from the iframe URL.
      *
