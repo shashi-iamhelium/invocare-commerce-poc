@@ -17,10 +17,7 @@ function applyUrlParamsToBody() {
       return;
     }
 
-    document.body.setAttribute(
-      `data-${key}`,
-      value,
-    );
+    document.body.setAttribute(`data-${key}`, value);
   });
 }
 
@@ -48,31 +45,3 @@ export default async function decorate(block) {
     console.error('Unable to render DA form', error);
   }
 }
-function applyBrandDesign() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const brand = urlParams.get('brand') || urlParams.get('theme') || 'default';
-
-  const checkMain = setInterval(() => {
-    const formElement = document.querySelector('.forms-container');
-    if (formElement) {
-      // Sets <main data-brand="inv"> or <main data-brand="brand-b">
-      formElement.setAttribute('data-theme', brand);
-      clearInterval(checkMain);
-    }
-  }, 50);
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', applyBrandDesign);
-} else {
-  applyBrandDesign();
-}
-window.addEventListener('message', (event) => {
-  // Validate origin for security
-  if (!event.origin.includes('localhost:3001')) return;
-
-  if (event.data && event.data.type === 'SET_THEME') {
-    const mainEl = document.querySelector('main');
-    if (mainEl) mainEl.setAttribute('data-theme', event.data.theme);
-  }
-});
