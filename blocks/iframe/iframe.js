@@ -1,5 +1,3 @@
-const RESIZE_MESSAGE_TYPE = 'iframe-block-resize';
-
 function normalizeName(value = '') {
   return String(value || '')
     .trim()
@@ -20,35 +18,41 @@ function getFirstLink(block) {
   return block.querySelector('a[href]');
 }
 
-function getFirstCellText(block) {
-  const cell = block.querySelector('td, div div');
-  return cell?.textContent?.trim() || '';
-}
-
+/**
+ * Get the iframe source URL.
+ *
+ * IMPORTANT:
+ * Use href rather than textContent.
+ */
 function getSourceUrl(block) {
   const link = getFirstLink(block);
-  const source = link?.getAttribute('href') || getFirstCellText(block);
 
-  if (!source) return '';
-
-  const url = new URL(source, window.location.href);
-  url.pathname = url.pathname.replace(/\.json$/, '');
-  url.searchParams.set('embedded', 'true');
-
-  return url.href;
+  return link?.href?.trim() || link?.textContent?.trim() || '';
 }
 
 function isUrlText(value = '') {
-  return /^(https?:)?\/\//i.test(value) || /^\/?\S+\.json(?:[?#].*)?$/i.test(value);
+  return (
+    /^(https?:)?\/\//i.test(value)
+    || /^\/?\S+\.json(?:[?#].*)?$/i.test(value)
+  );
 }
 
 function getIframeTitle(block, sourceUrl) {
   const link = getFirstLink(block);
   const linkText = link?.textContent?.trim();
-  const sourceName = new URL(sourceUrl).pathname.split('/').filter(Boolean).pop();
 
-  if (link?.title && !isUrlText(link.title)) return link.title;
-  if (linkText && !isUrlText(linkText)) return linkText;
+  const sourceName = new URL(sourceUrl).pathname
+    .split('/')
+    .filter(Boolean)
+    .pop() || 'content';
+
+  if (link?.title && !isUrlText(link.title)) {
+    return link.title;
+  }
+
+  if (linkText && !isUrlText(linkText)) {
+    return linkText;
+  }
 
   return `${getReadableName(sourceName)} form`;
 }
@@ -57,27 +61,15 @@ function getIframeId(block, sourceUrl) {
   const blockIndex = [...document.querySelectorAll('.iframe')].indexOf(block) + 1;
   const sourceName = new URL(sourceUrl).pathname.split('/').filter(Boolean).pop() || 'content';
 
-  return normalizeName(['iframe', sourceName, blockIndex].join('-'));
+  return normalizeName(
+    ['iframe', sourceName, blockIndex].join('-'),
+  );
 }
 
 function setIframeHeight(iframe) {
-  try {
-    const height = iframe.contentDocument?.documentElement?.scrollHeight;
-    if (height) iframe.style.height = `${Math.ceil(height)}px`;
-  } catch (error) {
-    // Cross-origin frames cannot be measured by the parent.
-  }
-}
+  const viewportHeight = window.innerHeight;
 
-function bindIframeResize(iframe) {
-  window.addEventListener('message', (event) => {
-    if (event.origin !== new URL(iframe.src).origin) return;
-    if (event.source !== iframe.contentWindow) return;
-    if (event.data?.type !== RESIZE_MESSAGE_TYPE) return;
-
-    const height = Number(event.data.height);
-    if (height > 0) iframe.style.height = `${Math.ceil(height)}px`;
-  });
+  iframe.style.height = `${Math.round(viewportHeight * 0.8)}px`;
 }
 
 function createIframe({ id, sourceUrl, title }) {
@@ -85,13 +77,17 @@ function createIframe({ id, sourceUrl, title }) {
 
   iframe.className = 'iframe-frame';
   iframe.id = id;
-  iframe.src = sourceUrl;
   iframe.title = title;
   iframe.loading = 'lazy';
   iframe.allow = 'payment *; fullscreen';
   iframe.referrerPolicy = 'no-referrer-when-downgrade';
-  iframe.addEventListener('load', () => setIframeHeight(iframe));
-  bindIframeResize(iframe);
+  iframe.src = sourceUrl;
+
+  setIframeHeight(iframe);
+
+  window.addEventListener('resize', () => {
+    setIframeHeight(iframe);
+  });
 
   return iframe;
 }
@@ -104,9 +100,11 @@ export default function decorate(block) {
     return;
   }
 
-  block.replaceChildren(createIframe({
-    id: getIframeId(block, sourceUrl),
-    sourceUrl,
-    title: getIframeTitle(block, sourceUrl),
-  }));
+  block.replaceChildren(
+    createIframe({
+      id: getIframeId(block, sourceUrl),
+      sourceUrl,
+      title: getIframeTitle(block, sourceUrl),
+    }),
+  );
 }
