@@ -1,4 +1,5 @@
 import initForms from './utility/form-fields-renderer.js';
+import { validateFrameAncestors } from '../../scripts/commerce.js';
 
 function removePageShell() {
   document.querySelector('header')?.remove();
@@ -23,6 +24,12 @@ function applyUrlParamsToBody() {
 
 export default async function decorate(block) {
   try {
+    const isAllowed = await validateFrameAncestors();
+    if (!isAllowed) {
+      block.innerHTML = '<div class="forms-blocked"><p>This form cannot be embedded on this domain.</p></div>';
+      return;
+    }
+
     removePageShell();
 
     /**

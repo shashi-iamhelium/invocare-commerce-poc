@@ -32,6 +32,13 @@
   line-height: 1.5;
 }
 
+.forms-blocked {
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-status-danger, #d9383a);
+  font-weight: 500;
+}
+
 .forms *,
 .forms *::before,
 .forms *::after {

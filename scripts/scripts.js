@@ -18,6 +18,7 @@ import {
   decorateLinks,
   loadErrorPage,
   decorateSections,
+  validateFrameAncestors,
   IS_UE,
   IS_DA,
 } from './commerce.js';
@@ -203,15 +204,31 @@ async function loadEager(doc) {
 
   const main = doc.querySelector('main');
   if (main) {
-    try {
-      await initializeCommerce();
-      decorateMain(main);
-      applyTemplates(doc);
-      await loadCommerceEager();
-    } catch (e) {
-      console.error('Error initializing commerce configuration:', e);
-      loadErrorPage(418);
+    const isFormsPage = window.location.pathname.startsWith('/forms');
+    if (isFormsPage) {
+      const isAllowed = await validateFrameAncestors();
+      if (!isAllowed) {
+        // eslint-disable-next-line no-console
+        console.error('Refused to frame form because ancestor is not allowed by Content-Security-Policy frame-ancestors directive.');
+        main.innerHTML = '<div class="section"><div class="forms-blocked"><p>This form cannot be embedded on this domain.</p></div></div>';
+        document.body.classList.add('appear');
+        return;
+      }
     }
+
+    decorateMain(main);
+    applyTemplates(doc);
+
+    if (!isFormsPage) {
+      try {
+        await initializeCommerce();
+        await loadCommerceEager();
+      } catch (e) {
+        console.error('Error initializing commerce configuration:', e);
+        loadErrorPage(418);
+      }
+    }
+
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
@@ -231,8 +248,9 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
+  const isFormsPage = window.location.pathname.startsWith('/forms');
   const header = doc.querySelector('header');
-  if (header) loadHeader(header);
+  if (header && !isFormsPage) loadHeader(header);
 
   const main = doc.querySelector('main');
   await loadSections(main);
@@ -242,9 +260,11 @@ async function loadLazy(doc) {
   if (hash && element) element.scrollIntoView();
 
   const footer = doc.querySelector('footer');
-  if (footer) loadFooter(footer);
+  if (footer && !isFormsPage) loadFooter(footer);
 
-  loadCommerceLazy();
+  if (!isFormsPage) {
+    loadCommerceLazy();
+  }
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();

@@ -26,13 +26,13 @@
     "/forms": [
       {
         "key": "Content-Security-Policy",
-        "value": "script-src 'nonce-aem' 'strict-dynamic' 'unsafe-inline' http: https:; base-uri 'self'; object-src 'none'; frame-src 'self' https:; frame-ancestors 'self' http://localhost:3001/enquire https://main--mysite--vinaygaharwarhelium.aem.live/enquire"
+        "value": "script-src 'nonce-aem' 'strict-dynamic' 'unsafe-inline' http: https:; base-uri 'self'; object-src 'none'; frame-src 'self' https:; frame-ancestors 'self' http://localhost:3001 https://main--mysite--vinaygaharwarhelium.aem.live"
       }
     ],
     "/forms/**": [
       {
         "key": "Content-Security-Policy",
-        "value": "script-src 'nonce-aem' 'strict-dynamic' 'unsafe-inline' http: https:; base-uri 'self'; object-src 'none'; frame-src 'self' https:; frame-ancestors 'self' http://localhost:3001/enquire https://main--mysite--vinaygaharwarhelium.aem.live/enquire"
+        "value": "script-src 'nonce-aem' 'strict-dynamic' 'unsafe-inline' http: https:; base-uri 'self'; object-src 'none'; frame-src 'self' https:; frame-ancestors 'self' http://localhost:3001 https://main--mysite--vinaygaharwarhelium.aem.live"
       }
     ]
   },

@@ -566,7 +566,7 @@ export async function getConfigFromSession() {
   const configURL = `${window.location.origin}/config.json`;
 
   try {
-    const configJSON = window.sessionStorage.getItem('config');
+    const configJSON = window.sessionStorage?.getItem('config');
     if (!configJSON) {
       throw new Error('No config in session storage');
     }
@@ -584,8 +584,99 @@ export async function getConfigFromSession() {
     if (!config.ok) throw new Error('Failed to fetch config');
     const configJSON = await config.json();
     configJSON[':expiry'] = Math.round(Date.now() / 1000) + 7200;
-    window.sessionStorage.setItem('config', JSON.stringify(configJSON));
+    try {
+      window.sessionStorage?.setItem('config', JSON.stringify(configJSON));
+    } catch {
+      // ignore storage errors in restricted contexts (e.g. cross-origin iframes)
+    }
     return configJSON;
+  }
+}
+
+/**
+ * Extracts allowed frame-ancestor origins from config headers for the current path.
+ * @param {Object} config - The site configuration object
+ * @returns {string[]} Array of allowed origin URLs
+ */
+export function getAllowedFrameAncestors(config) {
+  const allowed = new Set();
+  const currentPath = window.location.pathname;
+  const headers = config?.headers || {};
+
+  Object.entries(headers).forEach(([pattern, headerList]) => {
+    const normalizedPattern = pattern.replace(/\/\*\*$/, '');
+    const isMatch = currentPath === pattern
+      || currentPath === normalizedPattern
+      || currentPath.startsWith(`${normalizedPattern}/`)
+      || (pattern.endsWith('/**') && currentPath.startsWith(normalizedPattern));
+
+    if (isMatch && Array.isArray(headerList)) {
+      headerList.forEach((header) => {
+        if (header?.key?.toLowerCase() === 'content-security-policy' && header.value) {
+          const match = header.value.match(/frame-ancestors\s+([^;]+)/i);
+          if (match && match[1]) {
+            match[1].trim().split(/\s+/).forEach((token) => {
+              if (token === "'self'" || token === 'self') {
+                allowed.add(window.location.origin);
+              } else if (token && token !== "'none'") {
+                try {
+                  const url = new URL(token.startsWith('http') ? token : `https://${token}`);
+                  allowed.add(url.origin);
+                } catch {
+                  allowed.add(token);
+                }
+              }
+            });
+          }
+        }
+      });
+    }
+  });
+
+  return Array.from(allowed);
+}
+
+/**
+ * Validates if the current window frame ancestor is allowed to embed the page.
+ * @returns {Promise<boolean>} True if allowed, false otherwise
+ */
+export async function validateFrameAncestors() {
+  if (window.self === window.top) {
+    return true;
+  }
+
+  try {
+    const config = await getConfigFromSession();
+    const allowedOrigins = getAllowedFrameAncestors(config);
+
+    if (allowedOrigins.length === 0) {
+      return true;
+    }
+
+    if (window.location.ancestorOrigins && window.location.ancestorOrigins.length > 0) {
+      for (let i = 0; i < window.location.ancestorOrigins.length; i += 1) {
+        const ancestor = window.location.ancestorOrigins[i];
+        if (!allowedOrigins.includes(ancestor)) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    if (document.referrer) {
+      try {
+        const referrerOrigin = new URL(document.referrer).origin;
+        return allowedOrigins.includes(referrerOrigin);
+      } catch {
+        return false;
+      }
+    }
+
+    return false;
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn('Unable to validate frame ancestors:', e);
+    return true;
   }
 }
 
