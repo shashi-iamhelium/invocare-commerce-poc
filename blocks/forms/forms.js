@@ -31,21 +31,25 @@ function normalizeOrigin(urlStr) {
   }
 }
 
-async function isParentDomainAllowed() {
-  // If not inside an iframe, allowed by 'self'
-  if (window.self === window.top) {
-    return true;
+async function loadAllowedFrameAncestors() {
+  const allowed = new Set();
+  // Always allow the current origin ('self')
+  allowed.add(window.location.origin.toLowerCase());
+
+  // 1. Check document meta tags (e.g. <meta name="frame-ancestors" content="...">)
+  const metaAncestors = document.querySelector('meta[name="allowed-frame-ancestors"]')?.content
+    || document.querySelector('meta[name="frame-ancestors"]')?.content;
+  if (metaAncestors) {
+    metaAncestors.trim().split(/\s+/).forEach((token) => {
+      const cleaned = token.replace(/['"]/g, '').trim();
+      if (cleaned && cleaned !== 'none' && cleaned !== 'self') {
+        allowed.add(normalizeOrigin(cleaned));
+      }
+    });
   }
 
-  try {
-    const resp = await fetch('/config.json');
-    if (!resp.ok) return false;
-    const config = await resp.json();
-
-    const allowedOrigins = new Set();
-    const headers = config?.headers || {};
-
-    // Extract all frame-ancestors domains from config.json headers
+  const extractFromHeaders = (headers) => {
+    if (!headers || typeof headers !== 'object') return;
     Object.values(headers).forEach((headerList) => {
       if (Array.isArray(headerList)) {
         headerList.forEach((header) => {
@@ -55,9 +59,9 @@ async function isParentDomainAllowed() {
               match[1].trim().split(/\s+/).forEach((token) => {
                 const cleaned = token.replace(/['"]/g, '').trim();
                 if (cleaned === 'self') {
-                  allowedOrigins.add(window.location.origin.toLowerCase());
+                  allowed.add(window.location.origin.toLowerCase());
                 } else if (cleaned && cleaned !== 'none') {
-                  allowedOrigins.add(normalizeOrigin(cleaned));
+                  allowed.add(normalizeOrigin(cleaned));
                 }
               });
             }
@@ -65,10 +69,48 @@ async function isParentDomainAllowed() {
         });
       }
     });
+  };
 
-    const allowedList = Array.from(allowedOrigins);
+  // 2. Check /config.json
+  try {
+    const resp = await fetch('/config.json');
+    if (resp.ok) {
+      const config = await resp.json();
+      extractFromHeaders(config?.headers);
+      extractFromHeaders(config?.public?.default?.headers);
+    }
+  } catch {
+    // ignore
+  }
+
+  // 3. Fallback: Check /default-site.json if headers weren't found in config.json
+  if (allowed.size <= 1) {
+    try {
+      const siteResp = await fetch('/default-site.json');
+      if (siteResp.ok) {
+        const siteConfig = await siteResp.json();
+        extractFromHeaders(siteConfig?.headers);
+        extractFromHeaders(siteConfig?.public?.default?.headers);
+      }
+    } catch {
+      // ignore
+    }
+  }
+
+  return Array.from(allowed);
+}
+
+async function isParentDomainAllowed() {
+  // If not inside an iframe, allowed by 'self'
+  if (window.self === window.top) {
+    return true;
+  }
+
+  try {
+    const allowedList = await loadAllowedFrameAncestors();
+
+    // If only 'self' is in the allowed list and we're framed cross-origin, block
     if (allowedList.length === 0) {
-      // If inside an iframe and no allowed frame-ancestors are configured, block by default
       return false;
     }
 
