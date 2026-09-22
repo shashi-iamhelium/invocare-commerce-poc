@@ -22,7 +22,28 @@
       "host": "main--{SITE}--{ORG}.aem.page"
     }
   },
-  "headers": {},
+  "headers": {
+    "/forms": [
+      {
+        "key": "Content-Security-Policy",
+        "value": "script-src 'nonce-aem' 'strict-dynamic' 'unsafe-inline' http: https:; base-uri 'self'; object-src 'none'; frame-src 'self' https:; frame-ancestors 'self'"
+      },
+      {
+        "key": "X-Frame-Options",
+        "value": "SAMEORIGIN"
+      }
+    ],
+    "/forms/**": [
+      {
+        "key": "Content-Security-Policy",
+        "value": "script-src 'nonce-aem' 'strict-dynamic' 'unsafe-inline' http: https:; base-uri 'self'; object-src 'none'; frame-src 'self' https:; frame-ancestors 'self'"
+      },
+      {
+        "key": "X-Frame-Options",
+        "value": "SAMEORIGIN"
+      }
+    ]
+  },
   "public": {
     "default": {
       "commerce-core-endpoint": "{ENDPOINT}",
