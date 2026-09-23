@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+    }
+
+    .payment-container {
+      width: 100%;
+      margin: 0;
+    }
+
+    .payment-frame {
+      display: block;
+      width: 100%;
+      min-height: 750px;
+      border: 0;
+    }
+
+    .payment-error {
+      padding: 24px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #8f1d1d;
+    }
+  </style>
+</head>
+<body>
+  <main class="payment-container">
+    <iframe
+      class="payment-frame"
+      id="payment-frame"
+      title="Payment"
+      allow="payment *; fullscreen">
+    </iframe>
+  </main>
+
+  <script>
+    const PAYMENT_ORIGIN = 'https://paynow.pmnts-sandbox.io';
+    const REQUIRED_PAYMENT_PARAMS = ['merchant', 'reference', 'amount', 'currency', 'hash'];
+
+    function getPaymentValue(params, name) {
+      return params.get(name);
+    }
+
+    function showPaymentError() {
+      const container = document.querySelector('.payment-container');
+      const frame = document.getElementById('payment-frame');
+      const error = document.createElement('p');
+
+      error.className = 'payment-error';
+      error.textContent = 'Payment details are missing. Please return to the form and try again.';
+      frame.remove();
+      container.appendChild(error);
+    }
+
+    function createGatewayUrl(params) {
+      const merchant = getPaymentValue(params, 'merchant');
+      const reference = getPaymentValue(params, 'reference');
+      const currency = getPaymentValue(params, 'currency').toUpperCase();
+      const amount = getPaymentValue(params, 'amount');
+      const hash = getPaymentValue(params, 'hash');
+      const paymentPath = [
+        'v3',
+        merchant,
+        reference,
+        currency,
+        amount,
+        hash,
+      ].map(encodeURIComponent).join('/');
+      const gatewayUrl = new URL(`${PAYMENT_ORIGIN}/${paymentPath}`);
+
+      gatewayUrl.searchParams.set('iframe', 'true');
+      gatewayUrl.searchParams.set('postmessage', 'true');
+
+      return gatewayUrl.href;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const canLoadPayment = REQUIRED_PAYMENT_PARAMS.every((name) => params.get(name)?.trim());
+
+    if (canLoadPayment) {
+      document.getElementById('payment-frame').src = createGatewayUrl(params);
+    } else {
+      showPaymentError();
+    }
+
+    window.addEventListener('message', (event) => {
+      if (event.origin !== PAYMENT_ORIGIN) return;
+
+      window.parent.postMessage({
+        type: 'payment-status',
+        payload: event.data,
+      }, window.location.origin);
+    });
+  </script>
+</body>
+</html>
