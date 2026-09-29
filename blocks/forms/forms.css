@@ -465,3 +465,129 @@
   .forms .col-11 { --field-span: 11; }
   .forms .col-12 { --field-span: 12; }
 }
+
+/* ===== Wizard progress bar ===== */
+
+.form-progress {
+  width: 100%;
+  margin: 0 0 40px;
+}
+
+.form-progress-steps {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  list-style: none;
+}
+
+.form-progress-step {
+  /* position: relative; */
+
+  /*
+   * Only the circle occupies space.
+   * The label is positioned independently.
+   */
+
+  /* flex: 0 0 50px;
+  display: flex;
+  justify-content: center;
+  z-index: 1; */
+}
+
+.form-step-indicator {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 3px solid #e2e2e2;
+  border-radius: 50%;
+  background: #fff;
+  color: #999;
+  font-size: 20px;
+  font-weight: 400;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.form-step-label {
+  position: absolute;
+  
+  /* top: 70px;
+  left: 50%;
+  width: max-content;
+  max-width: 140px;
+  transform: translateX(-50%);
+  color: #777;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap; */
+}
+
+/*
+ * Connector
+ */
+.form-progress-line {
+  flex: 1;
+  height: 3px;
+  margin-top: 23.5px;
+  background: #e2e2e2;
+  transition: background-color 0.3s ease;
+}
+
+/*
+ * Completed steps
+ */
+.form-progress-step.is-completed {
+  .form-step-indicator {
+    border-color: var(--form-color-accent);
+    background: var(--form-color-accent);
+    color: #fff;
+  }
+
+  .form-step-label {
+    color: var(--form-color-accent);
+  }
+}
+
+/*
+ * Current step
+ */
+.form-progress-step.is-active {
+  /* .form-step-indicator {
+    border-color: var(--form-color-accent);
+    background: #fff;
+    color: var(--form-color-accent);
+  }
+
+  .form-step-label {
+    color: var(--form-color-accent);
+  } */
+}
+
+/*
+ * Pending steps
+ */
+.form-progress-step.is-pending {
+  /* .form-step-indicator {
+    border-color: #e2e2e2;
+    background: #fff;
+    color: #b5b5b5;
+  } */
+
+  /* .form-step-label {
+    color: #777;
+  } */
+}
+
+/*
+ * Completed connector
+ */
+.form-progress-line.is-completed {
+  background: var(--form-color-accent);
+}

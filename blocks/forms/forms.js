@@ -153,6 +153,130 @@ async function isParentDomainAllowed() {
   }
 }
 
+/**
+ * Derives a human-readable step label from a data-form-sheet value.
+ * @param {string} raw - e.g. "contact-details" or "step-2"
+ * @param {number} index - fallback ordinal
+ * @returns {string}
+ */
+function sheetLabel(raw, index) {
+  const clean = (raw || '').trim();
+  if (!clean) return `Step ${index + 1}`;
+  return clean
+    .replace(/[-_]+/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+/**
+ * Builds and injects a progress bar above the form that automatically updates
+ * whenever the renderer shows or hides a sheet (e.g. due to radio selection).
+ *
+ * Strategy:
+ *   - Step state is derived solely from each sheet's `hidden` / `data-sheet-state`
+ *     attributes, which the renderer sets in showDependentSheets / hideDependentSheets.
+ *   - A MutationObserver watches those attributes on every sheet so any transition
+ *     (choice-driven or programmatic) keeps the bar in sync without extra coupling.
+ *
+ * @param {Element} block
+ */
+function buildProgressBar(block) {
+  const form = block.querySelector('form.da-form');
+  if (!form) return;
+
+  const sheets = [...form.querySelectorAll('.form-sheet')];
+
+  if (sheets.length < 2) return;
+
+  const nav = document.createElement('nav');
+  nav.className = 'form-progress';
+  nav.setAttribute('aria-label', 'Form progress');
+
+  const list = document.createElement('ol');
+  list.className = 'form-progress-steps';
+
+  const stepItems = [];
+  const progressLines = [];
+
+  sheets.forEach((sheet, index) => {
+    const step = document.createElement('li');
+    step.className = 'form-progress-step is-pending';
+    step.dataset.stepIndex = index;
+
+    const indicator = document.createElement('span');
+    indicator.className = 'form-step-indicator';
+    indicator.setAttribute('aria-hidden', 'true');
+    indicator.textContent = index + 1;
+
+    const label = document.createElement('span');
+    label.className = 'form-step-label';
+    label.textContent = sheetLabel(sheet.dataset.formSheet, index);
+
+    step.append(indicator, label);
+    list.appendChild(step);
+
+    stepItems.push(step);
+
+    // Add a line between each step
+    if (index < sheets.length - 1) {
+      const line = document.createElement('div');
+      line.className = 'form-progress-line';
+      line.setAttribute('aria-hidden', 'true');
+
+      list.appendChild(line);
+      progressLines.push(line);
+    }
+  });
+
+  nav.appendChild(list);
+  form.insertAdjacentElement('beforebegin', nav);
+
+  function syncProgress() {
+    let activeIndex = 0;
+
+    sheets.forEach((sheet, index) => {
+      const isVisible = !sheet.hidden && sheet.dataset.sheetState !== 'hidden';
+
+      if (isVisible) {
+        activeIndex = index;
+      }
+    });
+
+    // Update circles
+    stepItems.forEach((step, index) => {
+      step.classList.remove('is-active', 'is-completed', 'is-pending');
+
+      if (index < activeIndex) {
+        step.classList.add('is-completed');
+      } else if (index === activeIndex) {
+        step.classList.add('is-active');
+      } else {
+        step.classList.add('is-pending');
+      }
+    });
+
+    // Update lines
+    progressLines.forEach((line, index) => {
+      line.classList.toggle('is-completed', index < activeIndex);
+    });
+
+    nav.setAttribute(
+      'aria-label',
+      `Form progress: step ${activeIndex + 1} of ${sheets.length}`,
+    );
+  }
+
+  const observer = new MutationObserver(syncProgress);
+
+  sheets.forEach((sheet) => {
+    observer.observe(sheet, {
+      attributes: true,
+      attributeFilter: ['hidden', 'data-sheet-state'],
+    });
+  });
+
+  syncProgress();
+}
+
 export default async function decorate(block) {
   try {
     const isAllowed = await isParentDomainAllowed();
@@ -177,9 +301,13 @@ export default async function decorate(block) {
     applyUrlParamsToBody();
 
     /**
-     * Render the form.
+     * Render the form, then attach the progress bar which observes the
+     * renderer's own sheet transitions (triggered by radio/choice selection).
      */
-    await initForms(block);
+    const form = await initForms(block);
+    if (form) {
+      buildProgressBar(block);
+    }
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Unable to render DA form', error);
